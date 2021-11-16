@@ -19,10 +19,14 @@ function read()
 }
 
 
-function updateBook($conn,$id,$author,$title,$price,$description,$fullpath)
+function updateBook($conn,$uid,$uauthor,$utitle,$uprice,$udescription,$fullpath)
 {
-    $sqlUpdate = "UPDATE tbl_books SET author = '".$author."',title = '".$title."',price = '".$price."',description = '".$description."',image_ID'".$fullpath."' WHERE id='".$id."';";
+    $sqlUpdate = "UPDATE tbl_books SET author = '".$uauthor."',title = '".$utitle."',price = '".$uprice."',description = '".$udescription."',image_ID = '".$fullpath."' WHERE id ='".$uid."';";
     $result = mysqli_query($conn,$sqlUpdate);
+
+    print_r($result);
+
+    echo $sqlUpdate;
 
     header("location: ../dashboard.php?page=books&update=success");
     exit();
