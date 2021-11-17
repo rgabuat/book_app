@@ -1,4 +1,4 @@
-<?php if($_SERVER['PHP_SELF'] == '/books/index.php') :?>
+<?php if($_SERVER['PHP_SELF'] == '/book_app/index.php') :?>
   <!-- Footer -->
   <footer class="text-center text-white" style="background-color: #0a4275;">
     <!-- Grid container -->
