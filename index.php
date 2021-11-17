@@ -7,6 +7,7 @@ include('./functions.php');
 include('./models/authors.model.php');
 include('./models/books.model.php');
 include('./models/users.model.php');
+is_logged_in();
 ?>
 <body>
 <!-- headers -->
@@ -14,6 +15,8 @@ include('./models/users.model.php');
 
 <!-- content -->
 <?php include('./templates/user/content.php'); ?>
+
+
 
 <?php
 include('./templates/footer.php') ; 

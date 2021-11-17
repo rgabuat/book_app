@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2021 at 11:50 AM
+-- Generation Time: Nov 17, 2021 at 09:35 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -63,7 +63,12 @@ INSERT INTO `tbl_authors` (`id`, `name`, `status`) VALUES
 (6, 'Author1dasdasdas', 0),
 (7, 'Author1dasdasdas', 0),
 (8, 'James Gooch', 0),
-(9, 'Garden Flow', 1);
+(9, 'Garden Flow', 1),
+(10, 'dasdasdasdas', 1),
+(11, 'sam', 1),
+(12, 'jagu', 1),
+(13, 'jaguss', 1),
+(14, 'james', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +94,7 @@ CREATE TABLE `tbl_books` (
 --
 
 INSERT INTO `tbl_books` (`id`, `author`, `title`, `price`, `description`, `date_created`, `date_updated`, `status`, `image_id`, `quantity`) VALUES
-(1, '1', 'Rampage', 'Rampage', 'Rampage', '2021-11-15 05:09:28', '2021-11-15 05:09:28', '1', 'book-Rampage.png', 0),
+(1, '9', 'Rampage', 'Rampage', 'Rampage', '2021-11-15 05:09:28', '2021-11-15 05:09:28', '1', 'book-Rampage.png', 0),
 (2, '4', 'test2', 'test2', 'test', '2021-11-15 05:13:20', '2021-11-15 05:13:20', '1', '', 0),
 (3, '1', 'Test', 'Test', '', '2021-11-15 05:35:25', '2021-11-15 05:35:25', '1', 'book-Test.png', 0),
 (4, '1', 'Sample', 'Sample', 'Sample', '2021-11-15 05:39:50', '2021-11-15 05:39:50', '1', 'book-Sample.png', 0),
@@ -97,6 +102,45 @@ INSERT INTO `tbl_books` (`id`, `author`, `title`, `price`, `description`, `date_
 (6, '5', 'Vampire Diaries', '200', 'Vampire Description', '2021-11-15 09:05:45', '2021-11-15 09:05:45', '1', '', 0),
 (7, '4', 'Big Bang', '200', 'Big Bang Desc', '2021-11-15 09:07:01', '2021-11-15 09:07:01', '1', 'book-Big Bang.jpg', 0),
 (8, '9', 'Twilight', '200', 'No Desc', '2021-11-16 10:36:15', '2021-11-16 10:36:15', '1', 'book-Twilight.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_logs`
+--
+
+CREATE TABLE `tbl_logs` (
+  `id` int(12) NOT NULL,
+  `action` varchar(60) NOT NULL,
+  `user` varchar(60) NOT NULL,
+  `module` varchar(60) NOT NULL,
+  `status` varchar(60) NOT NULL,
+  `status_result` varchar(255) NOT NULL,
+  `role` varchar(60) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_logs`
+--
+
+INSERT INTO `tbl_logs` (`id`, `action`, `user`, `module`, `status`, `status_result`, `role`, `date`) VALUES
+(87, 'logout', 'saitama', '', 'success', 'success', 'admin', '2021-11-17 07:47:43'),
+(88, 'login', 'saitama', '', 'success', 'logged in', 'admin', '2021-11-17 07:49:00'),
+(89, 'create', '', '', '', '', '', '2021-11-17 08:01:53'),
+(90, 'create', '', '', '', '', '', '2021-11-17 08:02:52'),
+(91, 'create', 'saitama', '', '', '', 'admin', '2021-11-17 08:06:46'),
+(92, 'logout', 'saitama', 'success', 'logged out', 'admin', 'Login', '2021-11-17 08:13:01'),
+(93, 'login', 'saitama', 'login', 'success', 'logged in', 'admin', '2021-11-17 08:13:32'),
+(94, 'logout', 'saitama', 'Login', 'success', 'logged out', 'admin', '2021-11-17 08:13:35'),
+(95, 'login', 'saitama', 'login', 'success', 'logged in', 'admin', '2021-11-17 08:15:32'),
+(96, 'logout', 'saitama', 'Login', 'success', 'logged out', 'admin', '2021-11-17 08:15:39'),
+(97, 'login', 'saitama', 'login', 'success', 'logged in', 'admin', '2021-11-17 08:15:45'),
+(98, 'create', 'saitama', 'Author', '', '', 'admin', '2021-11-17 08:16:28'),
+(99, 'create', 'saitama', 'Author', '', '', 'admin', '2021-11-17 08:17:37'),
+(100, 'create', 'saitama', 'Author', '', '', 'admin', '2021-11-17 08:24:02'),
+(101, 'create', 'saitama', 'Author', 'failed', 'admin', 'error', '2021-11-17 08:32:16'),
+(102, 'create', 'saitama', 'Author', 'success', 'true', 'admin', '2021-11-17 08:33:29');
 
 -- --------------------------------------------------------
 
@@ -178,6 +222,12 @@ ALTER TABLE `tbl_books`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_logs`
+--
+ALTER TABLE `tbl_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_status`
 --
 ALTER TABLE `tbl_status`
@@ -203,13 +253,19 @@ ALTER TABLE `dogs`
 -- AUTO_INCREMENT for table `tbl_authors`
 --
 ALTER TABLE `tbl_authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_books`
 --
 ALTER TABLE `tbl_books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_logs`
+--
+ALTER TABLE `tbl_logs`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `tbl_status`

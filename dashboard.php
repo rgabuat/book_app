@@ -7,7 +7,10 @@ include('./functions.php');
 include('./models/authors.model.php');
 include('./models/books.model.php');
 include('./models/users.model.php');
-is_logged_in(); 
+if(!is_logged_in())
+{
+    header("location: ./admin.php?error=invalidsession");   
+};
 ?>
 <body>
 
@@ -40,9 +43,11 @@ is_logged_in();
             <!-- End Page content -->
             <!-- ============================================================== -->
 
-            <?php include('./templates/footer.php') ?>
+          
         </div><!-- body-row END -->
         
 </div>
+
+<?php include('./templates/footer.php');?>
 </body>
 </html>

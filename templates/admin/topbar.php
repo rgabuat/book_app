@@ -9,7 +9,7 @@
     <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Navbar brand -->
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+      <a class="navbar-brand mt-2 mt-lg-0" href="./index.php">
         <img
           src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
           height="15"
@@ -21,6 +21,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Team</a>

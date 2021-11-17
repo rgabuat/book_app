@@ -10,7 +10,7 @@
           <p class="card-text">
           <form action="./controller/books.controller.php" method="POST" class="" enctype='multipart/form-data'>
                 <input type="hidden" name="action" value="update">
-                <input type="hidden" name="bid" value="<?= $key['id'];?>">
+                <input type="hidden" name="bid" value="<?= $_GET['id'];?>">
                 <select class="form-control form-control-lg my-3" name="author" id="exampleFormControlSelect1">
                 <?php 
                 $result = mysqli_query($conn,"SELECT DISTINCT* FROM tbl_authors WHERE status != 0");

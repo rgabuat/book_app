@@ -1,11 +1,28 @@
 <?php 
-function createAuthor($conn,$author)
+function createAuthor($conn,$author,$action,$user,$module,$role)
 {
     $sqlCreate = "INSERT INTO tbl_authors (name,status) VALUES ('$author','1');";
     $result = mysqli_query($conn,$sqlCreate);
-
-    header("location: ../dashboard.php?page=authors&create=success");
-    exit();
+//     if (mysqli_multi_query($GLOBALS['db'], $sql)) {
+//     echo "New records created successfully";
+// } else {
+//     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// }
+    if($result)
+    {
+        $sqlLogs = "INSERT INTO tbl_logs (action,user,module,status,status_result,role) VALUES ('$action','$user','$module','success','true','$role');";
+        $result = mysqli_query($conn,$sqlLogs);
+        header("location: ../dashboard.php?page=authors&module=create&success=true");
+        exit();
+    }
+    else 
+    {
+        $sqlLogs = "INSERT INTO tbl_logs (action,user,module,status,status_result,role) VALUES ('$action','$user','$module','error','failed','$role');";
+        $result = mysqli_query($conn,$sqlLogs);
+        header("location: ../dashboard.php?page=authors&module=create&error=failed");
+        exit();
+    }
+    
 }
 
 function fetch($conn,$id)

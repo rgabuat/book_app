@@ -116,29 +116,33 @@ function createUser($conn,$email,$username,$password,$userlevel,$status)
     mysqli_stmt_bind_param($stmt,"sssss",$email,$username,$passwordHashed,$userlevel,$status);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../admin.php");
+    header("location: ./admin.php");
     exit();
 
 }
 
 
-function loginUser($conn,$user_name,$user_pass)
+function loginUser($conn,$user_name,$user_pass,$action,$module)
 {
-    $uidExits = uidExits($conn,$user_name,$user_pass);
-    if($uidExits == false)
-    {
-        header("location: ./admin.php?error=wronglogin");
-        exit();
-    }
+    
 
+    $uidExits = uidExits($conn,$user_name,$user_pass);
+        if($uidExits == false)
+        {
+            $stats = array("status" => "error","result" => "user not exists","role" => "0");
+            header("location: ../admin.php?'".$stats['status']."'='".$stats['result']."'");
+            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
+            exit();
+        }
+        
         $passwordHashed = $uidExits['password'];
         $checkPwd = password_verify($user_pass,$passwordHashed);
 
-        var_dump($passwordHashed);
-
         if($checkPwd === false)
         {
-            header("location: ../admin.php?error=wrongpassword");
+            $stats = array("status" => "error","result" => "wrong password","role" => "0");
+            header("location: ../admin.php?'".$stats['status']."'='".$stats['result']."'");
+            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
             exit();
         }
         else if($checkPwd === true)
@@ -147,10 +151,12 @@ function loginUser($conn,$user_name,$user_pass)
             $_SESSION['username'] = $uidExits['username'];
             $_SESSION['id'] = $uidExits['id'];
             $_SESSION['role'] = $uidExits['userlevel'];
-            header("location: ../dashboard.php?success=ok&uid=".$_SESSION['username']);
+            $stats = array("status" => "success","result" => "logged in","role" => $uidExits['userlevel']);
+            header("location: ../dashboard.php?'".trim($stats['status'])."'='".$stats['result']."'&uid='".$_SESSION['username']."'");
+            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
             exit();
         }
-}
+    }
 
     function is_logged_in()
     {
@@ -158,13 +164,11 @@ function loginUser($conn,$user_name,$user_pass)
         $result;
         if(isset($_SESSION['username']) && isset($_SESSION['id']))
         {
-        $result = true;
+            $result = true;
         }
         else 
         {
-        header("location: ./admin.php?error=invalidsession");
-        $result = false;
-        exit();
+            $result = false;
         }
         return $result;
 
@@ -258,6 +262,20 @@ function loginUser($conn,$user_name,$user_pass)
         $userCount = mysqli_query($conn,"SELECT * FROM users_login");
         $num_rows = mysqli_num_rows($userCount);
         echo $num_rows;
+    }
+
+
+    // logs
+    function userlog($conn,$action,$user_name,$module,$status,$result,$role)
+    {
+        $sqlLogs = "INSERT INTO tbl_logs (action,user,module,status,status_result,role) VALUES ('$action','$user_name','$module','$status','$result','$role');";
+        $result = mysqli_query($conn,$sqlLogs);
+    }
+
+    function createBooklog()
+    {
+        $sqlLogs = "INSERT INTO tbl_logs (action,user,status,status_result,role) VALUES ('$action','$user_name','$status','$result','$role');";
+        $result = mysqli_query($conn,$sqlLogs);
     }
 
 

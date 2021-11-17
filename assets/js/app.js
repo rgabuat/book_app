@@ -115,5 +115,4 @@ $('#authorsTable').DataTable({
 });
 
 
-
 });
