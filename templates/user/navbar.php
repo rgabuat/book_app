@@ -3,7 +3,7 @@
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="https://mdbgo.com/">
+    <a class="navbar-brand me-2" href="./">
       <img
         src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
         height="16"
@@ -41,7 +41,26 @@
             <a href="./admin.php" class="btn btn-link px-3 me-2">Login </a>
             <a href="./register.php" class="btn btn-primary me-3">Sign up for free</a>
         <?php else: ?>
-            <a href="./dashboard.php" class="btn btn-warning px-3 me-2 d-flex align-items-center"><span class="material-icons me-3">person</span>My Account</a>
+            <a href="#" class="dropdown-toggle d-flex align-items-center hidden-arrow btn btn-warning px-3 me-2 d-flex align-items-center" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" ><span class="material-icons me-3">person</span>My Account</a>
+            <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+            style="right:auto !important;" 
+            >
+            <li>
+              <a class="dropdown-item" href="./dashboard.php">My profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Settings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./actions/logout.php">Logout</a>
+            </li>
+          </ul>
+          <a class="text-reset me-3" href="./cart.php">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge rounded-pill badge-notification bg-danger"><?= !empty($_SESSION['cart'])  ? count($_SESSION['cart']): ''; ?></span>
+          </a>
        <?php endif; ?>
       </div>
     </div>

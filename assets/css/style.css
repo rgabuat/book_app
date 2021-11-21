@@ -40,6 +40,13 @@ div#topbar
     transition-timing-function: linear,linear,ease;
 }
 
+.book_gallery
+{
+    height: 620px !important;
+    width: 100%;
+    object-fit: cover;
+}
+
 /* bootstrap custom css */
 .list-group-item 
 {

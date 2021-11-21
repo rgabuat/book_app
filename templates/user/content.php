@@ -21,7 +21,7 @@
                 <p class="card-text ">
                     <?= !empty($keys['description']) ? $keys['description'] : 'No Description on this Book' ?>
                 </p> -->
-                <p class="m-0 text-center"><a href="?page=accounts" class="text-light btn btn-primary rounded-0">BORROW THIS BOOK</a></p>
+                <p class="m-0 text-center"><a href="./bookview.php?id=<?= $keys['id']; ?>" class="text-light btn btn-primary rounded-0">BORROW THIS BOOK</a></p>
             </div>
         </div>
     </div>
