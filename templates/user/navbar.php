@@ -57,11 +57,11 @@
               <a class="dropdown-item" href="./actions/logout.php">Logout</a>
             </li>
           </ul>
-          <a class="text-reset me-3" href="./cart.php">
+       <?php endif; ?>
+       <a class="text-reset me-3" href="./cart.php">
             <i class="fas fa-shopping-cart"></i>
             <span class="badge rounded-pill badge-notification bg-danger"><?= !empty($_SESSION['cart'])  ? count($_SESSION['cart']): ''; ?></span>
           </a>
-       <?php endif; ?>
       </div>
     </div>
     <!-- Collapsible wrapper -->

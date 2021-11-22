@@ -17,10 +17,19 @@ is_logged_in();
 <div class="container my-5 pt-5">
 <h1 class="text-center mb-5 "><b>CART</b></h1>
 <!-- book table -->
+<?php if(isset($_GET['checkout']) && isset($_SESSION['err_message'])): ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-danger" role="alert">
+            <?=  $_SESSION['err_message']; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 <?php if(!empty($_SESSION['cart'])): ?>
 <form action="./controller/cart.controller.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="action" value="checkout">
-<input type="hidden" name="uid" id="<?= $_SESSION['id'] ?>">
+<input type="hidden" name="uid" id="<?= isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>">
 <table class="table align-middle border">
   <thead>
     <tr>
@@ -95,12 +104,6 @@ is_logged_in();
 </div>
 <?php endif; ?>
 </div>
-
-
-
-
-
-
 <?php include('./templates/footer.php') ; ?>
 </body>
 </html>

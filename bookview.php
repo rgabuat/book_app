@@ -24,8 +24,6 @@ if($_GET['add'] == 'success')
         header("location:./bookview.php?id=".$_GET['id']."&add=failed");
     }
 }
-// unset($_SESSION['cart']);
-// unset($_SESSION['message']);
 ?>
 <body>
 <!-- headers -->
