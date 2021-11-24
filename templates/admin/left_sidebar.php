@@ -16,9 +16,16 @@ close
               <p class="my-auto">Dashboard</p>
             </a>
           </li>
+          <li class="nav-item active ">
+            <a class="nav-link d-flex text-white mx-3" href="?page=profile">
+            <i class="material-icons me-3">person</i>
+              <p class="my-auto">Profile</p>
+            </a>
+          </li>
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
           <li class="nav-item ">
             <a class="nav-link d-flex text-white  mx-3" href="?page=accounts">
-              <i class="material-icons me-3">person</i>
+              <i class="material-icons me-3">manage_accounts</i>
               <p class="my-auto">Accounts</p>
             </a>
           </li>
@@ -58,6 +65,7 @@ close
               <p class="my-auto">logs</p>
             </a>
           </li>
+          <?php endif; ?>
         </ul>
 
 </div><!-- sidebar-container END -->

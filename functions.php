@@ -72,7 +72,8 @@ function pwdMath($password , $passwordRepeat)
 
 function uidExits($conn,$username,$email)
 {
-    $sql = "SELECT * FROM users_login WHERE username = ? OR email = ?;";
+    $sql = "SELECT users_login.id,fname,lname,email,dob,contact,username,password, tbl_roles.role_level as userlevel FROM users_login JOIN tbl_roles ON users_login.role = tbl_roles.id WHERE username = ? OR email = ?;";
+    // $sql = "SELECT * FROM users_login  WHERE username = ? OR email = ?;";
     $stmt = mysqli_stmt_init($conn); //initialize db connection //prepared statement
 
     if(!mysqli_stmt_prepare($stmt,$sql))
@@ -100,9 +101,9 @@ function uidExits($conn,$username,$email)
 }
 
 
-function createUser($conn,$email,$username,$password,$userlevel,$status)
+function createUser($conn,$fname,$lname,$email,$dob,$contact,$username,$password)
 {
-    $sql = "INSERT INTO users_login (email,username,password,userlevel,status) VALUES (?,?,?,?,?);";
+    $sql = "INSERT INTO users_login (fname,lname,email,dob,contact,username,password) VALUES (?,?,?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn); //initialize db connection //prepared statement
 
     if(!mysqli_stmt_prepare($stmt,$sql))
@@ -113,10 +114,10 @@ function createUser($conn,$email,$username,$password,$userlevel,$status)
 
     $passwordHashed = password_hash($password,PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt,"sssss",$email,$username,$passwordHashed,$userlevel,$status);
+    mysqli_stmt_bind_param($stmt,"sssssss",$fname,$lname,$email,$dob,$contact,$username,$passwordHashed);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ./admin.php");
+    header("location: ../register.php?create=success");
     exit();
 
 }
@@ -130,7 +131,7 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
         if($uidExits == false)
         {
             $stats = array("status" => "error","result" => "user not exists","role" => "0");
-            header("location: ../admin.php?'".$stats['status']."'='".$stats['result']."'");
+            header("location: ../admin.php?".$stats['status']."=".$stats['result']."");
             userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
             exit();
         }
