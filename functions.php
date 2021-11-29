@@ -265,6 +265,18 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
         echo $num_rows;
     }
 
+    function countBooksBorrowed($conn)
+    {
+        $borrowedCount = mysqli_query($conn,"SELECT COUNT(tbl_orderdetails.ords_id) as bcount FROM tbl_orderdetails");
+
+        // $num_rows = mysqli_num_rows($borrowedCount);
+        foreach($borrowedCount as $bcount)
+        {
+            echo $bcount['bcount'];   
+        }
+        // return $count;
+    }
+
 
     // logs
     function userlog($conn,$action,$user_name,$module,$status,$result,$role)
@@ -280,5 +292,39 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
     }
 
 
+    function updateImg($conn,$id,$img)
+    {
+        $upload_dir = '../uploads/';
+        $data = array(
+            'file_name' => $_FILES[$img]['name'],
+            'file_tmp' => $_FILES[$img]['tmp_name'],
+            'file_type' => $_FILES[$img]['type'],
+            'file_size' => $_FILES[$img]['size'],
+            'file_error' => $_FILES[$img]['error'],
+        );
+
+        $file_ext = explode('.',$data['file_name']);
+        $fileActExt = strtolower(end($file_ext));
+        
+        if($data['file_error'] === 0)
+        {
+            $imgid = rand();
+            $fileNewName = $id."-"."$imgid".".".$fileActExt; 
+            $fileDest = $upload_dir.$fileNewName;
+            move_uploaded_file($data['file_tmp'],$fileDest);
+            $fullpath = $fileNewName;
+            echo $fileNewName;
+        }
+
+        $sqlUpdate = "UPDATE users_login SET image = '".$fileNewName."' WHERE id ='".$id."';";
+        $result = mysqli_query($conn,$sqlUpdate);
+        header("location: ../dashboard.php?page=profile&update=success");
+        exit();
+
+        
+    }
+
+
+    
 
 ?>

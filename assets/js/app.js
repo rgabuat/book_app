@@ -67,6 +67,13 @@ $('a#delBtn').on('click',function(){
     //         $('#alert').html(html);
     //     }
     // });
+
+   
+});
+
+$('#editprofile').on('click',function(){
+    $(this).hide();
+    $('#profileform').removeClass('d-none');
 });
 
 function readURL(input) {

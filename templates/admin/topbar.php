@@ -37,12 +37,12 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3" href="#">
+      <a class="text-reset me-3" href="./cart.php">
         <i class="fas fa-shopping-cart"></i>
       </a>
 
       <!-- Notifications -->
-      <a
+      <!-- <a
         class="text-reset me-3 dropdown-toggle hidden-arrow"
         href="#"
         id="navbarDropdownMenuLink"
@@ -52,7 +52,7 @@
       >
         <i class="fas fa-bell"></i>
         <span class="badge rounded-pill badge-notification bg-danger">1</span>
-      </a>
+      </a> -->
       <ul
         class="dropdown-menu dropdown-menu-end"
         aria-labelledby="navbarDropdownMenuLink"
@@ -77,13 +77,22 @@
         data-mdb-toggle="dropdown"
         aria-expanded="false"
       >
+      <?php 
+            $result = mysqli_query($conn,"SELECT * FROM users_login WHERE id='".$_SESSION['id']."'");
+            if(mysqli_num_rows($result) > 0):
+            foreach($result as $user):
+          ?>
         <img
-          src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+          src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'https://mdbootstrap.com/img/new/avatars/2.jpg' ?>"
           class="rounded-circle"
           height="25"
           alt=""
           loading="lazy"
         />
+      <?php 
+        endforeach;
+        endif;
+      ?>
       </a>
       <ul
         class="dropdown-menu dropdown-menu-end"

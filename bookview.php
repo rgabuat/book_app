@@ -31,6 +31,7 @@ if($_GET['add'] == 'success')
 <div class="container mt-3">
     <div class="row">
     <?php 
+    if(isset($_GET['id'])):
     $result = mysqli_query($conn,"SELECT tbl_books.id,tbl_books.title,tbl_books.price,tbl_books.description,tbl_books.image_id ,tbl_authors.name as author FROM tbl_books JOIN tbl_authors WHERE tbl_books.author = tbl_authors.id AND tbl_books.id = '".validate($_GET['id'])."';");
     if (mysqli_num_rows($result) > 0) :
     foreach($result as $keys): ?>
@@ -125,7 +126,10 @@ if($_GET['add'] == 'success')
     <?php endforeach; ?>
     <?php else: ?>
         <p>book not found</p>
-    <?php endif;?>
+    <?php endif; ?>
+    <?php else: ?>
+        <p class="text-center">book not found</p>    
+    <?php  endif;?>
     </div>
 </div>
 <?php include('./templates/footer.php');?>  

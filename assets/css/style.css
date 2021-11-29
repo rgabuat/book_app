@@ -1,3 +1,7 @@
+body 
+{
+    background-color: #eee!important;
+}
 .sidebar
 {
     position: fixed;

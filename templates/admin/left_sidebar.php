@@ -22,6 +22,14 @@ close
               <p class="my-auto">Profile</p>
             </a>
           </li>
+          <?php if(isset($_SESSION['role']) && $_SESSION['role'] != 'admin'): ?>
+          <li class="nav-item active ">
+            <a class="nav-link d-flex text-white mx-3" href="?page=mybooks">
+            <i class="material-icons me-3">book</i>
+              <p class="my-auto">My Books</p>
+            </a>
+          </li>
+          <?php endif; ?>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
           <li class="nav-item ">
             <a class="nav-link d-flex text-white  mx-3" href="?page=accounts">
@@ -41,7 +49,7 @@ close
               <p class="my-auto">Books</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <a class="nav-link d-flex text-white mx-3" href="?page=stats">
               <i class="material-icons me-3">analytics</i>
               <p class="my-auto">Stats</p>
@@ -58,7 +66,7 @@ close
               <i class="material-icons me-3">support_agent</i>
               <p class="my-auto">Support</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item ">
             <a class="nav-link d-flex text-white mx-3" href="?page=logs">
               <i class="material-icons me-3">history</i>

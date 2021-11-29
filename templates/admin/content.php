@@ -8,8 +8,6 @@
  $dir = 'pages/';
  $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
- echo $page;
-
 if(file_exists($dir.$page.'.php'))
 {
     // echo $dir.$page.'.php';

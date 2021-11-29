@@ -1,7 +1,4 @@
 <?php 
-// include('./dbconnect.php');
-// include('./functions.php');
-
 
 function createBook($conn,$author,$title,$price,$description,$fullpath)
 {

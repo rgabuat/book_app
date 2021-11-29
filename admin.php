@@ -1,4 +1,15 @@
-<?php include('./templates/head.php');?>
+<?php 
+    include('./templates/head.php');
+    include('./dbconnect.php');
+    include('./functions.php');
+
+    if(is_logged_in())
+    {
+      header('location:./dashboard.php');
+    }
+
+?>
+
 <body> 
   <!-- <div class="container vh-100 d-flex align-items-center ">
     <div class="col-md-4 m-auto ">
@@ -34,8 +45,10 @@
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png" style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                  <a href="./">
+                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png" style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                  </a>
                 </div>
 
                 <form action="./actions/login.php" method="POST" enctype='multipart/form-data'>
@@ -55,7 +68,7 @@
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <input type="submit" name="submit" value="LOGIN" class="btn btn-success btn-lg btn-block fa-lg gradient-custom-2 mb-3 rounded-0">
-                    <a class="text-muted" href="#!">Forgot password?</a>
+                    <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
