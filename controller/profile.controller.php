@@ -54,7 +54,8 @@ if(isset($_POST['submit']))
     {
         $img = 'uprofile';
         $id= mysqli_escape_string($conn,$_POST['pid']);
-        updateImg($conn,$id,$img,);
+        $module = mysqli_escape_string($conn,$_POST['module']);
+        updateImg($conn,$id,$img,$module);
     }
 }
 else

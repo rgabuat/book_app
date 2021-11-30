@@ -2,17 +2,17 @@
 
 <div class="container-fluid mt-5">
     <div class="row mb-5">
-        <div class="col-12">
+        <!-- <div class="col-12">
             <div  class="card bg-warning text-white">
                 <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem">
-                    <h2 class="text-dark">Welcome <span class="text-white"><?= ucwords($_SESSION['username']);?></span></h2>
+                    <h2 class="text-dark">Welcome <span class="text-white"><= ucwords($_SESSION['username']);?></span></h2>
                     <span>My Profile</span>
                     <h2 class="card-text ">
 
                     </h2>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
    <div class="row mb-3">
        <div class="col-lg-8 col-md-6 mb-3">
@@ -81,7 +81,8 @@
                     <img src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'uploads/img_avatar.png' ?>" class="rounded-circle img-fluid" height="200" alt="" loading="lazy">
                     <div class="">
                         <button id="editprofile" class="btn btn-primary mt-3">UPDATE PICTURE</button>
-                        <form id="profileform" action="./controller/profile.controller.php" method="post" enctype="multipart/form-data" class="d-none">
+                        <form id="profileform" action="./controller/users.controller.php" method="post" enctype="multipart/form-data" class="d-none">
+                            <input type="hidden" name="module" value="accounts">
                             <input type="hidden" name="action" value="updateimg">
                             <input type="hidden" name="pid" value="<?=$user['id']; ?>">
                             <input type="file" id="file-input" name="uprofile" value="" class="form-control form-control-lg w-50 rounded-0 mt-3 mx-auto rounded" required/>

@@ -80,6 +80,7 @@
                     <div class="">
                         <button id="editprofile" class="btn btn-primary mt-3">UPDATE PICTURE</button>
                         <form id="profileform" action="./controller/profile.controller.php" method="post" enctype="multipart/form-data" class="d-none">
+                            <input type="hidden" name="module" value="profile">
                             <input type="hidden" name="action" value="updateimg">
                             <input type="hidden" name="pid" value="<?=$user['id']; ?>">
                             <input type="file" id="file-input" name="uprofile" value="" class="form-control form-control-lg w-50 rounded-0 mt-3 mx-auto rounded" required/>

@@ -18,6 +18,7 @@ if(isset($_POST['submit']))
         $dob = mysqli_escape_string($conn,$_POST['dob']);
         $email = mysqli_escape_string($conn,$_POST['email']);
         $contact = mysqli_escape_string($conn,$_POST['contact']);
+        
 
         if(emptyForm($fname,$lname,$uname,$password,$passwordRepeat,$dob,$email,$contact) !== false)
         {
@@ -52,7 +53,7 @@ if(isset($_POST['submit']))
 
     }
 
-    elseif($_POST['action'] == "updateaccount")
+    else if($_POST['action'] == "updateaccount")
     {
         $id= mysqli_escape_string($conn,$_POST['pid']);
         $fname= mysqli_escape_string($conn,$_POST['fname']);
@@ -95,6 +96,14 @@ if(isset($_POST['submit']))
 
         updateaccount($conn,$id,$fname,$lname,$email,$dob,$contact,$uname);
 
+    }
+
+    else if($_POST['action'] == "updateimg")
+    {
+        $img = 'uprofile';
+        $id= mysqli_escape_string($conn,$_POST['pid']);
+        $module = mysqli_escape_string($conn,$_POST['module']);
+        updateImg($conn,$id,$img,$module);
     }
     
     else if($_POST['action'] == "delete")

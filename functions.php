@@ -292,7 +292,7 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
     }
 
 
-    function updateImg($conn,$id,$img)
+    function updateImg($conn,$id,$img,$module)
     {
         $upload_dir = '../uploads/';
         $data = array(
@@ -318,13 +318,12 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
 
         $sqlUpdate = "UPDATE users_login SET image = '".$fileNewName."' WHERE id ='".$id."';";
         $result = mysqli_query($conn,$sqlUpdate);
-        header("location: ../dashboard.php?page=profile&update=success");
-        exit();
 
+
+            header("location: ../dashboard.php?page=".$module."&update=success");
+   
+        exit();
         
     }
-
-
-    
 
 ?>
