@@ -9,10 +9,19 @@ include('./models/books.model.php');
 include('./models/users.model.php');
 is_logged_in();
 ?>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Rubik:wght@300&display=swap');
+
+* {
+   font-family: 'Rubik', sans-serif;
+}
+</style>
+
 <body>
 <!-- headers -->
 <?php include('./templates/user/navbar.php');?>
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-45" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -26,60 +35,60 @@ is_logged_in();
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" name="fname"class="form-control" />
-                      <label class="form-label" for="form3Example1c">First name</label>
+                      <input type="text" id="form3Example1c" name="fname"class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">First name <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" name="lname"class="form-control" />
-                      <label class="form-label" for="form3Example1c">Last  name</label>
+                      <input type="text" id="form3Example1c" name="lname"class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">Last name <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-calendar fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="date" id="form3Example1c" name="dob"class="form-control" />
+                      <input type="date" id="form3Example1c" name="dob"class="form-control" required/>
                       <label class="form-label" for="form3Example1c"></label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" name="uname"class="form-control" />
-                      <label class="form-label" for="form3Example1c">Username</label>
+                      <input type="text" id="form3Example1c" name="uname"class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">Username <span class="text-danger">*</span></label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" name="email" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" id="form3Example3c" name="email" class="form-control" required/>
+                      <label class="form-label" for="form3Example3c">Your Email <span class="text-danger">*</span></label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="number" id="form3Example3c" name="contact" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Contact </label>
+                      <input type="number" id="form3Example3c" name="contact" class="form-control" required/>
+                      <label class="form-label" for="form3Example3c">Contact <span class="text-danger">*</span></label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" name="password" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
+                      <input type="password" id="form3Example4c" name="password" class="form-control" required/>
+                      <label class="form-label" for="form3Example4c">Password <span class="text-danger">*</span></label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" name="passwordRepeat" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" id="form3Example4cd" name="passwordRepeat" class="form-control" required/>
+                      <label class="form-label" for="form3Example4cd">Confirm your password <span class="text-danger">*</span></label>
                     </div>
                   </div>
 
@@ -89,13 +98,17 @@ is_logged_in();
                       type="checkbox"
                       value=""
                       id="form2Example3c"
+                      required
                     />
                     <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
+                      I agree all statements in <a href="#!">Terms of service <span class="text-danger">*</span></a>
                     </label>
                   </div>
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" name="submit" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+                  <div class="text-center mx-4 mb-3 mb-lg-4">
+                    <a href="./admin.php"> <span class="text-dark"> Already have an account?</span> Login</a>
                   </div>
                 </form>
               </div>

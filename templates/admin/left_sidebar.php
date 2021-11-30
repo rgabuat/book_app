@@ -1,11 +1,11 @@
-<div id="sidebar-container" class="sidebar sidebar-expanded d-none d-lg-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+<div id="sidebar-container" class="sidebar sidebar-expanded d-none d-lg-block" style="background-image: url(uploads/Shimmer.png)"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
 <a href="#" class=" text-white d-lg-none d-md-block">
 <span id="close" class="material-icons p-2 w-100 " style="text-align:right">
 close
 </span>
 </a>
 <div class="logo">
-    <h2 class="py-3 text-center">MAIN MENU<h2>
+    <h2 class="py-3 text-center text-white">MAIN MENU<h2>
 </div>
 <hr class="w-75 m-auto">
 

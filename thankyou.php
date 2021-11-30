@@ -15,8 +15,10 @@ is_logged_in();
 
 <!-- content -->
 <div class="container my-5 pt-5">
-    <h1 class="mb-5 "><b>Order Received</b></h1>
-    <p>Thank you. Your order has been received.</p>
+    <h1 class="mb-3 text-success"><b>Borrow success!</b></h1>
+    <p>Thank you! You can read the book you have borrowed.</p>
+    <br>
+    <h2><b>Order Details</b></h2>
     <?php 
         if(isset($_GET['order']) && isset($_GET['order_id'])): 
         if($_GET['order'] == 'success'):
@@ -25,12 +27,11 @@ is_logged_in();
 
     ?>
     <p><b>Order ID: </b><?= $_GET['order_id'] ?></p>
-    <p class="mb-5"><b>Date:</b><?= date("F d, Y h:i:s A") ?></p>
-    <h2><b>Order Details</b></h2>
+    <p><b>Date: </b><?= date("F d, Y h:i:s A") ?></p>
     <table class="table">
         <thead>
             <tr>
-                <th>Book</th>
+                <th>Book Title</th>
                 <th>Quantity</th>
             </tr>
         </thead>

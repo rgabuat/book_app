@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class=" navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-2">
+<nav class=" navbar fixed-top navbar-expand-lg navbar-light shadow-2" style="background-color: #2f6690 !important">
   <!-- Container wrapper -->
   <div id="topbar" class="container-fluid">
     <!-- Toggle button -->
@@ -11,14 +11,14 @@
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="./index.php">
         <img
-          src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-          height="15"
-          alt=""
+          src="uploads/TFavicon.png"
+          height="45"
+          alt="logo"
           loading="lazy"
         />
       </a>
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
 
@@ -29,7 +29,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Projects</a>
         </li>
-      </ul>
+      </ul> -->
       <!-- Left links -->
     </div>
     <!-- Collapsible wrapper -->
@@ -38,7 +38,7 @@
     <div class="d-flex align-items-center">
       <!-- Icon -->
       <a class="text-reset me-3" href="./cart.php">
-        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-shopping-cart" style="color: #ffffff !important"></i>
       </a>
 
       <!-- Notifications -->
@@ -53,7 +53,7 @@
         <i class="fas fa-bell"></i>
         <span class="badge rounded-pill badge-notification bg-danger">1</span>
       </a> -->
-      <ul
+      <!-- <ul
         class="dropdown-menu dropdown-menu-end"
         aria-labelledby="navbarDropdownMenuLink"
       >
@@ -66,7 +66,7 @@
         <li>
           <a class="dropdown-item" href="#">Something else here</a>
         </li>
-      </ul>
+      </ul> -->
 
       <!-- Avatar -->
       <a
@@ -83,7 +83,7 @@
             foreach($result as $user):
           ?>
         <img
-          src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'https://mdbootstrap.com/img/new/avatars/2.jpg' ?>"
+          src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'uploads/img_avatar.png' ?>"
           class="rounded-circle"
           height="25"
           alt=""
@@ -99,11 +99,11 @@
         aria-labelledby="navbarDropdownMenuLink"
       >
         <li>
-          <a class="dropdown-item" href="#">My profile</a>
+          <a class="dropdown-item" href="?page=profile">My profile</a>
         </li>
-        <li>
+        <!-- <li>
           <a class="dropdown-item" href="#">Settings</a>
-        </li>
+        </li> -->
         <li>
           <a class="dropdown-item" href="./actions/logout.php">Logout</a>
         </li>

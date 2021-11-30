@@ -10,6 +10,14 @@
 
 ?>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Rubik:wght@300&display=swap');
+
+* {
+   font-family: 'Rubik', sans-serif;
+}
+</style>
+
 <body> 
   <!-- <div class="container vh-100 d-flex align-items-center ">
     <div class="col-md-4 m-auto ">
@@ -35,35 +43,35 @@
     </form> 
     </div>
   </div> -->
-  <section class="h-100 gradient-form" style="background-color: #eee;">
+  <section class="h- gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
+        <div class="card rounded-3 text-white" style="background-color: #2f6690;">
           <div class="row g-0">
             <div class="col-lg-6">
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
                   <a href="./">
-                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png" style="width: 185px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+                    <img src="uploads/Tmainlogo.png" style="width: 185px;" alt="logo">
+                    <!-- <h4 class="mt-1 mb-5 pb-1 text-white">Telepath: Magic In Every Book</h4> -->
                   </a>
                 </div>
 
                 <form action="./actions/login.php" method="POST" enctype='multipart/form-data'>
                   <input type="hidden" name="action" value="login">
                   <input type="hidden" name="module" value="login">
-                  <p>Please login to your account</p>
+                  <p>Magic starts here! Login to your account</p>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form2Example11" name="admuser" class="form-control form-control-lg" placeholder="Phone number or email address"/>
-                    <label class="form-label" for="form2Example11">Username</label>
+                    <input type="text" id="form2Example11" name="admuser" class="form-control form-control-lg" placeholder="Phone number or email address" style="color: #81c3d7;"/>
+                    <label class="form-label" style="color: #81c3d7;" for="form2Example11">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                  <input type="password" id="form1Example13" name="admpass" class="form-control form-control-lg" />
-                  <label class="form-label" for="form1Example13">Password</label>
+                  <input type="password" id="form1Example13" name="admpass" class="form-control form-control-lg" style="color: #81c3d7;"/>
+                  <label class="form-label" for="form1Example13" style="color: #81c3d7;">Password</label>
                 </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
@@ -81,10 +89,10 @@
 
               </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2 text-center">
               <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h4 class="mb-4">About Telepath</h4>
+                <p class="small mb-0">Telepath is a web application that incorporates the idea of borrowing books online, and having a personal user library that contains all the purchases made. It also incorporates the feeling of reading together with acquaintances by allowing the users to have a place of discussion about their thoughts and reactions about the books they have read.</p>
               </div>
             </div>
           </div>

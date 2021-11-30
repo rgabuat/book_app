@@ -31,15 +31,15 @@ is_logged_in();
 <input type="hidden" name="action" value="checkout">
 <input type="hidden" name="uid" id="<?= isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>">
 <table class="table align-middle border">
-  <thead>
+  <thead class="text-center">
     <tr>
-      <th scope="col">BOOK</th>
-      <th scope="col">CATEGORY</th>
+      <th scope="col">Book Cover</th>
+      <th scope="col">Book Name</th>
       <th scope="col">Date Added</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
         <?php
             // $query = mysqli_query($conn,"SELECT tbl_books.title ,tbl_books.category ,tbl_books.image_id ,tbl_cart.bid ,tbl_cart.trans_date FROM tbl_cart JOIN tbl_books where tbl_cart.bid = tbl_books.id AND tbl_cart.status = 0 AND tbl_cart.uid = '".validate($_GET['id'])."';");
             if(!empty($_SESSION['cart'])):
@@ -88,22 +88,22 @@ is_logged_in();
 </table>
         <div class="row">
             <div class="col-12 text-center">
-                 <input type="hidden" name="order_id" value="<?= $order_id ?>">
-                 <input type="hidden" name="order_acct" value="<?= $_SESSION['id']; ?>">
-                <button type="submit" class="btn btn-dark btn-lg rounded-0" name="checkout"><strong>CHECKOUT</strong></button>
+                 <input type="hidden" name="order_id" value="<php?= $order_id ?>"/>
+                 <input type="hidden" name="order_acct" value="<php ?= $_SESSION['id']; ?>"/>
+                <button type="submit" class="btn btn-lg rounded-0 text-white" style="background-color: #16425b;" name="checkout"><strong>CHECKOUT</strong></button>
             </div>
         </div>
 </form>
 <?php else: ?>
 <div class="row">
-    <div class="col-12 bg-light rounded-0">
-        <p>Cart is Empty !</p>
-        <a href="./" class="btn btn-lg btn-dark rounded-0">RETURN HOMEPAGE</a>
+    <div class="col-12 bg-light rounded-0 text-center">
+        <h4 class="mt-3 mb-3">Cart is Empty!</h4>
+        <a href="./" class="btn btn-lg rounded-.5 text-white mb-3" style="background-color: #16425b;">RETURN HOMEPAGE</a>
     </div>
    
 </div>
 <?php endif; ?>
 </div>
-<?php include('./templates/footer.php') ; ?>
+<!-- <php include('./templates/footer.php') ; ?> -->
 </body>
 </html>

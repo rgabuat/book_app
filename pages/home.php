@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-12">
         <div class="card bg-light mb-4">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem !important;">
                     <div class="col-md-6">
-                        <h2 class="text-dark">Welcome <?= ucwords($_SESSION['username']);?></h2>
-                        <p class="m-auto text-secondary"><?= ucwords($_SESSION['role']);?></p>
+                        <h2 style="color: #ffffff;">Welcome <?= ucwords($_SESSION['username']);?></h2>
+                        <p class="m-auto text-secondary" style="color: #81c3d7 !important;"><?= ucwords($_SESSION['role']);?></p>
                     </div>
                     <div class="col-md-6">
                         
@@ -17,8 +17,8 @@
     <div class="row">
     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
-            <div  class="card bg-warning text-white">
-                <div class="card-body">
+            <div  class="card bg-warning text-dark text-center">
+                <div class="card-body" style="background-color: #d9dcd6; border-radius: .5rem;">
                     <h3 class="card-title">Total Users</h3>
                     <h2 class="card-text ">
                     <?php countUsers($conn); ?>
@@ -29,8 +29,8 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
-            <div class="card bg-secondary text-white">
-                <div class="card-body">
+            <div class="card bg-secondary text-dark text-center">
+                <div class="card-body" style="background-color: #81c3d7; border-radius: .5rem;">
                     <h3 class="card-title">Total Books</h3>
                     <h2 class="card-text">
                         <?php countBooks($conn) ?>
@@ -41,27 +41,27 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
+            <div class="card bg-primary text-white text-center">
+                <div class="card-body" style="background-color: #2f6690; border-radius: .5rem;">
                     <h3 class="card-title">Total Authors</h3>
                     <h2 class="card-text">
                         <?php countAuthors($conn) ?>
                     </h2>
                     <hr>
-                    <p class="m-0 text-center"><a href="?page=authors" class="text-dark">View Details</a></p>
+                    <p class="m-0 text-center"><a href="?page=authors" class="text-white">View Details</a></p>
                 </div>
             </div>
         </div>
         <?php endif; ?>
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
-            <div class="card bg-success text-white">
-                <div class="card-body">
+            <div class="card bg-success text-white text-center">
+                <div class="card-body" style="background-color: #16425b; border-radius: .5rem;">
                     <h3 class="card-title">Total Books Borrowed</h3>
                     <h2 class="card-text">
                         <?php countBooksBorrowed($conn) ?>
                     </h2>
                     <hr>
-                    <p class="m-0 text-center"><a href="?page=stats" class="text-dark">View Details</a></p>
+                    <p class="m-0 text-center"><a href="?page=stats" class="text-white">View Details</a></p>
                 </div>
             </div>
         </div>
@@ -70,9 +70,9 @@
     <div class="row">
     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
         <div class="col-lg-6">
-        <div class="card bg-light text-primary">
+        <div class="card bg-light" style="color: #16425b;">
                 <div class="card-body">
-                    <h3 class="card-title text-center">Top Borrowers</h3>
+                    <h3 class="card-title text-center mb-3">Top Borrowers</h3>
             <table id="topBorrower" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>
@@ -90,7 +90,7 @@
                 ?>
                     <tr>
                         <td><?= $i++ ?></td>
-                        <td><?= ucfirst($top['fname'].''.$top['lname']);?></td>
+                        <td><?= ucfirst($top['fname'].' '.$top['lname']);?></td>
                         <td><?= $top['ord_count'] ?></td>
                     </tr>
                 <?php
@@ -105,9 +105,9 @@
             </div>
         </div>
         <div class="col-lg-6">
-        <div class="card bg-light text-primary">
+        <div class="card bg-light" style="color: #16425b;">
                 <div class="card-body">
-                    <h3 class="card-title text-center">Top Books Borrowed</h3>
+                    <h3 class="card-title text-center mb-3">Top Books Borrowed</h3>
                     <table id="topBooks" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                     <tr>

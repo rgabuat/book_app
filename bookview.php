@@ -52,12 +52,12 @@ if($_GET['add'] == 'success')
             <img
                 src="<?= !empty($keys['image_id']) ? $dir.$keys['image_id'] : $dir.'img_avatar.png"' ?>" class="img-fluid img-thumbnail book_gallery" alt="Book image"
                 class="card-img-top"
-                alt="Book Img";
+                alt="Book Image";
             />
             </div>
             <div class="col-md-6">
                 <h1 class="book_title mb-2"><b><?= ucwords($keys['title']) ?></b></h1>
-                <p class="book_status" style="font-size:24px"><b>Test</b></p>
+                <!-- <p class="book_status" style="font-size:24px"><b>Test</b></p> -->
                 <p class="book_description mb-4"><?=ucwords($keys['description']); ?></p>
                 <a href="./bookview.php?id=<?= $_GET['id']; ?>&add=success" class="btn btn-dark p-3 rounded-0 w-lg-100 w-md-50" ><strong>ADD BOOK TO CART</strong></a>
                 <!-- <form action="./controller/cart.controller.php" method="POST" enctype="multipart/form-data">
@@ -65,14 +65,14 @@ if($_GET['add'] == 'success')
                     <button type="submit" name="cart" class="btn btn-dark p-3 rounded-0 w-25" value="<?= $keys['id']; ?>"><strong>ADD TO CART</strong></button>
                 </form> -->
                 <hr>
-                <?php print_r($_SESSION); ?>
-                <p class="book_category mt-3"><span>CATEGORY:</span> Romance</p>
+                <php print_r($_SESSION); ?>
+                <!-- <p class="book_category mt-3"><span>CATEGORY:</span> Romance</p> -->
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <!-- Tabs navs -->
-                    <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+                    <!-- <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a
                         class="nav-link active"
@@ -97,11 +97,11 @@ if($_GET['add'] == 'success')
                         >Very very very very long link</a
                         >
                     </li>
-                    </ul>
+                    </ul> -->
                     <!-- Tabs navs -->
 
                     <!-- Tabs content -->
-                    <div class="tab-content" id="ex2-content">
+                    <!-- <div class="tab-content" id="ex2-content">
                     <div
                         class="tab-pane fade show active"
                         id="ex3-tabs-1"
@@ -118,7 +118,7 @@ if($_GET['add'] == 'success')
                     >
                         Tab 2 content
                     </div>
-                    </div>
+                    </div> -->
         <!-- Tabs content -->
             </div>
         </div>

@@ -64,7 +64,7 @@
         <div class="modal-body">
         <div class="row">
         <div class="form-group">
-        <label for="exampleFormControlSelect1">Authors Created</label>
+        <label for="exampleFormControlSelect1">Existing Authors</label>
         <select class="form-control form-control-lg my-3" id="exampleFormControlSelect1">
         <?php 
         $result = mysqli_query($conn,"SELECT DISTINCT* FROM tbl_authors WHERE status != 0");
@@ -81,7 +81,9 @@
         </div>
         <form action="./controller/author.controller.php" method="POST" class="" enctype='multipart/form-data'>
             <input type="hidden" name="action" value="create">
+            <label for="exampleFormControlSelect1">Add Authors</label>
             <div class="form-outline">
+            
                 <input type="text" id="formControlLg" name="author" class="form-control form-control-lg rounded-0" required />
                 <label class="form-label" for="formControlLg">Author Name</label>
             </div>

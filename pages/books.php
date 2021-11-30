@@ -1,6 +1,6 @@
 <div class="container-fluid mt-5">
     <div class="row text-left">
-      <div class="col-12 text-right">
+      <div class="col-12 text-right mb-3">
         <a href="?page=addbooks" class="btn btn-success">ADD NEW BOOK</a>
       </div>
     </div>

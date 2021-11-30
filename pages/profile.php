@@ -2,7 +2,7 @@
     <div class="row mb-5">
         <div class="col-12">
             <div  class="card bg-warning text-white">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem">
                     <h2 class="text-dark">Welcome <span class="text-white"><?= ucwords($_SESSION['username']);?></span></h2>
                     <span>My Profile</span>
                     <h2 class="card-text ">
@@ -16,7 +16,7 @@
        <div class="col-lg-8 col-md-6 mb-3">
           <div  class="card bg-light text-white">
             <div class="card-body">
-                <h3 class="card-title text-primary">User Details</h3>
+                <h3 class="card-title" style="color: #16425b;">User Details</h3>
                 <p class="card-text ">
                     <?php 
                         $result = mysqli_query($conn,"SELECT * FROM users_login WHERE id='".$_SESSION['id']."'");
@@ -65,20 +65,20 @@
                             </div>
                         </div>
                         <div class="row">
-                            <input type="submit" name="submit" value="UPDATE PROFILE" class="btn btn-warning btn-lg w-lg-25 mt-lg-2 mt-md-5 mx-auto rounded-0 ">
+                            <input style="background-color: #3a7ca5 !important; border-radius: .5rem !important" type="submit" name="submit" value="UPDATE DETAILS" class="btn btn-warning btn-lg w-lg-25 mt-lg-2 mt-md-5 mx-auto rounded-0 ">
                         </div>
                     </form>
                 </p>
             </div>
         </div>
        </div>
-       <div class="col-lg-4 col-md-6 mb-3">
+       <div class="col-lg-4 col-md-6 mb-3" >
        <div  class="card bg-warning text-white">
-            <div class="card-body">
+            <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem !important;">
                 <div class="text-center" style="margin-top:-50px">
-                    <img src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'https://mdbootstrap.com/img/new/avatars/2.jpg' ?>" class="rounded-circle img-fluid" height="200" alt="" loading="lazy">
+                    <img src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'uploads/img_avatar.png' ?>" class="rounded-circle img-fluid" height="200" alt="" loading="lazy">
                     <div class="">
-                        <button id="editprofile" class="btn btn-primary mt-3">UPDATE PROFILE</button>
+                        <button id="editprofile" class="btn btn-primary mt-3">UPDATE PICTURE</button>
                         <form id="profileform" action="./controller/profile.controller.php" method="post" enctype="multipart/form-data" class="d-none">
                             <input type="hidden" name="action" value="updateimg">
                             <input type="hidden" name="pid" value="<?=$user['id']; ?>">
@@ -87,18 +87,18 @@
                         </form>
                     </div>
                 </div>
-                <h2 class="card-title text-center mt-3"><?= ucfirst($user['username']);?></h2>
-                <p class="card-text ">Full Name: <?= ucfirst($user['fname'].' '.$user['lname']);?></p>
-                <p class="card-text ">Email :<?= ucfirst($user['email']);?></p>
-                <p class="card-text ">
+                <h2 class="card-title text-center mt-3"><?= $user['username'];?></h2>
+                <p class="card-text">Full Name: <?= ucfirst($user['fname'].' '.$user['lname']);?></p>
+                <p class="card-text">Email: <?= $user['email'];?></p>
+                <p class="card-text">
                     <?php 
                         
                         $dob_convert = strtotime($user['dob']);
                         $dob_converted = getDate($dob_convert);
-                        echo 'Birthday: '.$dob_converted['month'].' '.$dob_converted['mday'].','.$dob_converted['year'];
+                        echo 'Birthday: '.$dob_converted['month'].' '.$dob_converted['mday'].', '.$dob_converted['year'];
                     ?>
                 </p>
-                <p class="card-text ">Contact no.
+                <p class="card-text">Contact number: 
                         <?= !empty($user['contact']) ? ucfirst($user['contact']) : 'No data' ?>
                 </p>
             </div>

@@ -8,8 +8,8 @@
                 <th>Last name</th>
                 <th>Contact</th>
                 <th>Username</th>
-                <th>role</th>
-                <th>Status</th>
+                <!-- <th>Role</th> -->
+                <!-- <th>Status</th> -->
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,10 +24,10 @@
                 <td><img src="<?= !empty($keys['profile_img']) ? $dir.$keys['image_id'] : $dir.'img_avatar.png"' ?>" class="img-fluid img-thumbnail" width="60px" height="60px" alt="..."></td>
                 <td><?= $keys['fname'] ?></td>
                 <td><?= $keys['lname'] ?></td>
-                <td><?= $keys['email'] ?></td>
+                <!-- <td><= $keys['email'] ?></td> -->
                 <td><?= $keys['contact'] ?></td>
                 <td><?= $keys['username']?></td>
-                <td><?= $keys['status']?></td>
+                <!-- <td><= $keys['status']?></td> -->
                 <td>
                <span>
                <a id="editBtn" href="?page=bookeditpage&id=<?= $keys['id'] ?>" class="text-warning" data-id="<?= $keys['id'] ?>" data-title="Edit" data-action="edit" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Edit">
