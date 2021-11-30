@@ -1,3 +1,4 @@
+<div class="container mt-5">
 <?php if(isset($_GET['error'])):
         if($_GET['error']==="Email-is-not-valid"): ?>
 
@@ -41,3 +42,4 @@
     endif;
     endif;
 ?>
+</div>
