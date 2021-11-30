@@ -6,6 +6,7 @@
                 <th>Profile Image</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Email</th>
                 <th>Contact</th>
                 <th>Username</th>
                 <!-- <th>Role</th> -->
@@ -24,7 +25,7 @@
                 <td><img src="<?= !empty($keys['profile_img']) ? $dir.''.$keys['profile_img'] : $dir.'img_avatar.png"' ?>" class="img-fluid img-thumbnail" width="60px" height="60px" alt="..."></td>
                 <td><?= $keys['fname'] ?></td>
                 <td><?= $keys['lname'] ?></td>
-                <!-- <td><= $keys['email'] ?></td> -->
+                <td><?= $keys['email'] ?></td>
                 <td><?= $keys['contact'] ?></td>
                 <td><?= $keys['username']?></td>
                 <!-- <td><= $keys['status']?></td> -->
@@ -49,7 +50,6 @@
             <?php endif?>
         </tbody>
     </table>
-
 
     <!-- modal -->
 

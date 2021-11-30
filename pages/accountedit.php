@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid mt-5">
     <div class="row mb-5">
         <div class="col-12">
@@ -23,8 +25,8 @@
                         if(mysqli_num_rows($result) > 0 ):
                         foreach($result as $user):
                     ?>
-                    <form action="./controller/profile.controller.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="action" value="updateprofile">
+                    <form action="./controller/users.controller.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="action" value="updateaccount">
                         <input type="hidden" name="pid" value="<?= $user['id'] ?>">
                         <div class="row">
                             <div class="col-md-4">
@@ -108,5 +110,6 @@
             endforeach;
             endif;
         ?>
+
    </div>
 </div>

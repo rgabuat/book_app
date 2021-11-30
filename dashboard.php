@@ -36,7 +36,9 @@ if(!is_logged_in())
             <!-- ============================================================== -->
 
             <div class="content-page main">
+            <?php require('errors.php'); ?>
                 <?php include('./templates/admin/content.php'); ?>
+                
             </div>
 
             <!-- ============================================================== -->

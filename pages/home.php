@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <?php endif; ?>
+        
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
             <div class="card bg-success text-white text-center">
                 <div class="card-body" style="background-color: #16425b; border-radius: .5rem;">
@@ -66,6 +66,18 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
+
+    <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'user'): ?>
+    <div class="mt-5 row">
+        <div class="col-12 rounded-0 text-center">
+            <h4 class="mt-3 mb-3">CHECK OUT OUR COLLECTION OF MAGICAL ITEMS: BOOKS!</h4>
+            <a href="./" class="btn btn-lg rounded-.5 text-white mb-3" style="background-color: #16425b;">Borrow Now</a>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <a href="./book_app"></a>
 
     <div class="row">
     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>

@@ -44,14 +44,28 @@
 
 // }
 
-// function updateAccount($conn,$id,$fname,$lname,$email,$dob,$contact,$password,$role,$status,$image)
-// {
-//     $sqlUpdate = "UPDATE users_login SET name = '".$fname.' '.$lname"', email = "$email" WHERE id ='".$id."';";
-//     $result = mysqli_query($conn,$sqlUpdate);
+function updateaccount($conn,$id,$fname,$lname,$email,$dob,$contact,$uname)
+{
+    $sqlUpdate = "UPDATE users_login SET fname = '$fname', lname = '$lname', email = '$email', dob = '$dob', contact = '$contact', uname = '$uname'  WHERE `users_login`.`id` = '".$id."';";
 
-//     header("location: ../dashboard.php?page=accounts&update=success");
-//     exit();
-// }
+    // $sqlUpdate = "UPDATE users_login SET fname = '".$fname."',lname = '".$lname."',email = '".$email."',dob = '".$dob."',contact = '".$contact."' ,username = '".$uname."' WHERE id ='".$id."';";
+    $result = mysqli_query($conn,$sqlUpdate);
+
+    print_r($result);
+
+    echo $sqlUpdate;
+
+    header("location: ../dashboard.php?page=accounts&update=success");
+    exit();
+
+}
+
+if($_POST['action'] == "updateimg")
+    {
+        $img = 'uprofile';
+        $id= mysqli_escape_string($conn,$_POST['pid']);
+        updateImg($conn,$id,$img,);
+    }
 
 function deleteAccount($conn,$id)
 {   
