@@ -41,8 +41,8 @@
             <a href="./admin.php" class="btn btn-link px-3 me-2 text-white">Login </a>
             <a href="./register.php" class="btn btn-primary me-3">Sign up for free</a>
         <?php else: ?>
-            <a href="./dashboard.php" class="dropdown-toggle d-flex align-items-center hidden-arrow btn btn-warning px-3 me-2 d-flex align-items-center" id="navbarDropdownMenuLink" role="button" style="background-color: #81c3d7; border-radius: .5rem" data-mdb-toggle="dropdown" aria-expanded="false" ><span class="material-icons me-3">person</span>My Account</a>
-            <ul
+            <a href="./dashboard.php" class=" d-flex align-items-center hidden-arrow btn btn-warning px-3 me-2 d-flex align-items-center" id="navbarDropdownMenuLink" role="button" style="background-color: #81c3d7; border-radius: .5rem" aria-expanded="false" ><span class="material-icons me-3">person</span>My Account</a>
+            <!-- <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuLink"
             style="right:auto !important;" 
@@ -50,15 +50,15 @@
             <li>
               <a class="dropdown-item" href="./dashboard.php">My profile</a>
             </li>
-            <!-- <li>
+             <li>
               <a class="dropdown-item" href="#">Settings</a>
-            </li> -->
+            </li> 
             <li>
               <a class="dropdown-item" href="./actions/logout.php">Logout</a>
             </li>
-          </ul>
+          </ul> -->
        <?php endif; ?>
-       <a class="text-reset me-3 href="./cart.php">
+       <a class="text-reset me-3" href="./cart.php">
             <i class="text-white fas fa-shopping-cart"></i>
             <span class="badge rounded-pill badge-notification bg-danger"><?= !empty($_SESSION['cart'])  ? count($_SESSION['cart']): ''; ?></span>
           </a>

@@ -88,8 +88,8 @@ is_logged_in();
 </table>
         <div class="row">
             <div class="col-12 text-center">
-                 <input type="hidden" name="order_id" value="<php?= $order_id ?>"/>
-                 <input type="hidden" name="order_acct" value="<php ?= $_SESSION['id']; ?>"/>
+                 <input type="hidden" name="order_id" value="<?= $order_id ?>"/>
+                 <input type="hidden" name="order_acct" value="<?= $_SESSION['id']; ?>"/>
                 <button type="submit" class="btn btn-lg rounded-0 text-white" style="background-color: #16425b;" name="checkout"><strong>CHECKOUT</strong></button>
             </div>
         </div>
