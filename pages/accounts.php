@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php $result = mysqli_query($conn,"SELECT users_login.id,fname,lname,email,dob,contact,username,password, users_login.status,users_login.image as profile_img, tbl_roles.role_level as userlevel FROM users_login JOIN tbl_roles ON users_login.role = tbl_roles.id");
+            <?php $result = mysqli_query($conn,"SELECT users_login.id,fname,lname,email,dob,contact,username,password, users_login.status,users_login.image as profile_img, tbl_roles.role_level as userlevel FROM users_login JOIN tbl_roles ON users_login.role = tbl_roles.id WHERE status != 1");
             $i = 1;
             if (mysqli_num_rows($result) > 0) :
             foreach($result as $keys): ?>
@@ -73,7 +73,7 @@
                 </div>
             <div class="modal-body">
             <div class="row">
-                <form action="./controller/author.controller.php" method="POST" class="" enctype='multipart/form-data'>
+                <form action="./controller/users.controller.php" method="POST" class="" enctype='multipart/form-data'>
                     <input id="action" type="hidden" name="action" value="">
                     <input id="editId" type="hidden" name="editId" value="">
                     <div id="alert"></div>
@@ -81,7 +81,7 @@
                         <input type="text" id="authorName" name="author" value="" class="form-control form-control-lg rounded-0" required />
                         <label class="form-label" for="formControlLg">Account</label>
                     </div>
-                    <input type="submit" class="btn btn-success form-control my-3 rounded-0" data-mdb-ripple-color="dark" value="SUBMIT">
+                    <input type="submit" name="submit" class="btn btn-success form-control my-3 rounded-0" data-mdb-ripple-color="dark" value="SUBMIT">
                 </form>
             </div>
             </div>

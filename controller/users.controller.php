@@ -2,6 +2,7 @@
 session_start();
 include('../dbconnect.php');
 include('../functions.php');
+include('../models/users.model.php');
 
 if(isset($_POST['submit']))
 {
@@ -51,7 +52,18 @@ if(isset($_POST['submit']))
 
     }
 
-   
+    else if($_POST['action'] == "update")
+    {
+        $id = mysqli_escape_string($conn,$_POST['editId']);
+        $updatedAccount = mysqli_escape_string($conn,$_POST['account']);
+        updateAccount($conn,$id,$updatedAuthor);
+    }
+    
+    else if($_POST['action'] == "delete")
+    {
+        $id = mysqli_escape_string($conn,$_POST['editId']);
+        deleteAccount($conn,$id);
+    }   
 
 
     // if($_POST['action'] == "login")

@@ -99,7 +99,7 @@ $('a#ActDelBtn').on('click',function(){
 
     html += '<h2 class="text-danger text-center">';
     html += '<span class="material-icons me-3">warning</span>'
-    html += 'Confirm to Delete author';
+    html += 'Confirm to Delete Account';
     html += '</h2>';
 
     $('#AccountEditModal').modal('show'); 
