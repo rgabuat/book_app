@@ -260,7 +260,7 @@ function loginUser($conn,$user_name,$user_pass,$action,$module)
 
     function countUsers($conn)
     {
-        $userCount = mysqli_query($conn,"SELECT * FROM users_login");
+        $userCount = mysqli_query($conn,"SELECT * FROM users_login WHERE status = 0");
         $num_rows = mysqli_num_rows($userCount);
         echo $num_rows;
     }

@@ -65,7 +65,7 @@ function deleteAuthor($conn,$id)
 
 function countAuthors($conn)
 {
-    $userCount = mysqli_query($conn,"SELECT * FROM tbl_authors");
+    $userCount = mysqli_query($conn,"SELECT * FROM tbl_authors WHERE status = 1");
     $num_rows = mysqli_num_rows($userCount);
     echo $num_rows;
 }
