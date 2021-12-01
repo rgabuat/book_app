@@ -18,8 +18,6 @@ if(isset($_POST['submit']))
 
     loginUser($conn,$user_name,$user_pass,$action,$module);
     
-   
-
 }
 else
 {

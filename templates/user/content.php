@@ -14,13 +14,8 @@
                 alt="Book Image"
                 style="object-fit:cover;height:250px;"
             />
-            <!-- src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" -->
             <div class="card-body" style="background-color: #81c3d7 !important; ">
                 <p class="card-title text-center"><?= ucwords($keys['title']); ?></p>
-                <!-- <span><?= $keys['title']; ?></span>
-                <p class="card-text ">
-                    <?= !empty($keys['description']) ? $keys['description'] : 'No Description on this Book' ?>
-                </p> -->
                 <p class="m-0 text-center"><a href="./bookview.php?id=<?= $keys['id']; ?>" class="btn btn-primary rounded-0">BORROW THIS BOOK</a></p>
             </div>
         </div>
