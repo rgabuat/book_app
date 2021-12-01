@@ -36,9 +36,9 @@
                 </a>
                </span>
                <span>
-               <a id="delBtn" href="javascript:void(0);" class="text-danger" data-id="<?= $keys['id'] ?>" data-title="Delete" data-action="delete" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Delete" >
+               <!-- <a id="delBtn" href="javascript:void(0);" class="text-danger" data-id="<?= $keys['id'] ?>" data-title="Delete" data-action="delete" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Delete" >
                     <i class="material-icons me-3">delete</i>
-                </a>
+                </a> -->
                </span>
             </td>
             </tr>
