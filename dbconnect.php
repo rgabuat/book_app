@@ -1,15 +1,15 @@
-<?php 
+<?php
 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = 'loginform';
+require __DIR__.'/vendor/autoload.php';
 
-$conn = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
+use Kreait\Firebase\Factory;
 
-if ($conn->connect_error) 
-{
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo 'test';
+$factory = (new Factory)
+    ->withServiceAccount('C:\xampp\htdocs\petnership\petnership-firebase-adminsdk-yftv6-ac39ee0b29.json')
+    ->WithDatabaseUri('https://petnership-default-rtdb.asia-southeast1.firebasedatabase.app/');
+
+
+$database = $factory->createDatabase();
+$auth = $factory->createAuth();
 ?>
+

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "lcobucci/jwt": "^4.0",
+        "kreait/firebase-php": "^6.9"
+    }
+}

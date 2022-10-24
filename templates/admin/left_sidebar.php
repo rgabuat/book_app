@@ -1,4 +1,4 @@
-<div id="sidebar-container" class="sidebar sidebar-expanded d-none d-lg-block" style="background-image: url(uploads/Shimmer.png)"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+<div id="sidebar-container" class="sidebar sidebar-expanded d-none d-lg-block" style="background-color:#371576;"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
 <a href="#" class=" text-white d-lg-none d-md-block">
 <span id="close" class="material-icons p-2 w-100 " style="text-align:right">
 close
@@ -17,9 +17,9 @@ close
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link d-flex text-white mx-3" href="?page=profile">
+            <a class="nav-link d-flex text-white mx-3" href="?page=display-shelters">
             <i class="material-icons me-3">person</i>
-              <p class="my-auto">Profile</p>
+              <p class="my-auto">Shelters</p>
             </a>
           </li>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] != 'admin'): ?>
@@ -34,19 +34,19 @@ close
           <li class="nav-item ">
             <a class="nav-link d-flex text-white  mx-3" href="?page=accounts">
               <i class="material-icons me-3">manage_accounts</i>
-              <p class="my-auto">Accounts</p>
+              <p class="my-auto">Adopters</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link d-flex text-white  mx-3" href="?page=authors">
-              <i class="material-icons me-3">edit_note</i>
-              <p class="my-auto">Authors</p>
+            <a class="nav-link d-flex text-white  mx-3" href="?page=cats">
+              <i class="fas fa-cat me-3" style="font-size:24px"></i>
+              <p class="my-auto">Cats</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link d-flex text-white  mx-3" href="?page=books">
-              <i class="material-icons me-3">book</i>
-              <p class="my-auto">Books</p>
+            <a class="nav-link d-flex text-white  mx-3" href="?page=dogs">
+              <i class="fas fa-dog me-3" style="font-size:24px"></i>
+              <p class="my-auto">Dogs</p>
             </a>
           </li>
           <!-- <li class="nav-item ">
@@ -71,6 +71,12 @@ close
             <a class="nav-link d-flex text-white mx-3" href="?page=logs">
               <i class="material-icons me-3">history</i>
               <p class="my-auto">logs</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link d-flex text-white mx-3" href="./actions/logout.php">
+              <i class="material-icons me-3">logout</i>
+              <p class="my-auto">Logout</p>
             </a>
           </li>
           <?php endif; ?>

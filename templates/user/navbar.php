@@ -1,11 +1,11 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #2f6690 !important">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #C8A4D4 !important">
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
     <a class="navbar-brand me-2" href="./">
       <img
-        src="uploads/TFavicon.png"
+        src="petlogo.png"
         height="45"
         alt=""
         loading="lazy"

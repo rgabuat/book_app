@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class=" navbar fixed-top navbar-expand-lg navbar-light shadow-2" style="background-color: #2f6690 !important">
+<nav class=" navbar fixed-top navbar-expand-lg navbar-light shadow-2" style="background-color: #AC94F4 !important">
   <!-- Container wrapper -->
   <div id="topbar" class="container-fluid">
     <!-- Toggle button -->
@@ -11,7 +11,7 @@
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="./index.php">
         <img
-          src="uploads/TFavicon.png"
+          src="petlogo.png"
           height="45"
           alt="logo"
           loading="lazy"
@@ -24,9 +24,6 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3" href="./cart.php">
-        <i class="fas fa-shopping-cart" style="color: #ffffff !important"></i>
-      </a>
 
       <!-- Avatar -->
       <a
@@ -37,11 +34,7 @@
         data-mdb-toggle="dropdown"
         aria-expanded="false"
       >
-      <?php 
-            $result = mysqli_query($conn,"SELECT * FROM users_login WHERE id='".$_SESSION['id']."'");
-            if(mysqli_num_rows($result) > 0):
-            foreach($result as $user):
-          ?>
+      
         <img
           src="<?= !empty($user['image']) ? './uploads/'.$user['image'] : 'uploads/img_avatar.png' ?>"
           class="rounded-circle"
@@ -49,10 +42,7 @@
           alt=""
           loading="lazy"
         />
-      <?php 
-        endforeach;
-        endif;
-      ?>
+      
       </a>
       <ul
         class="dropdown-menu dropdown-menu-end"
