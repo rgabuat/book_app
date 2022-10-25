@@ -24,30 +24,62 @@
                         include("dbconnect.php");
 
                         if (isset($_GET['id'])) {
-                            $uid = $_GET['id'];
+                            $key_child = $_GET['id'];
 
                             $ref_table = "Shelters";
-                            $user = $auth->getUser($uid);
+                            $getData = $database->getReference($ref_table)->getChild($key_child)->getValue();
 
-                            if ($user > 0) {
+                            if ($getData > 0) {
                                 ?>
-
+                                
                                 <form action="./controller/users.controller.php" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="action" value="updateaccount">
-                                    <input type="hidden" name="uid" value="<?= $uid ?>">
-                                    <div class="form-group mb-3">
-                                        <label for="">Display name</label>
-                                        <input type="text" name="display_name" value="<?=$user->displayName;?>" class="form-control form-control-lg rounded-0" required>
-                                    </div>
-                                    <!-- <div class="form-group mb-3">
-                                        <label for="">Business Name</label>
-                                        <input type="email" name="email" value="<?=$user->email;?>" class="form-control form-control-lg rounded-0" required>
-                                    </div> -->
+                                <input type="hidden" name="action" value="updateaccount">
                                     <div class="form-group mb-3">
                                         <label for="">Business Name</label>
-                                        <input type="tel" name="phone" value="<?=$user->phoneNumber;?>" class="form-control form-control-lg rounded-0" required>
+                                        <input type="text" name="bizName" value="<?=$getData['bizName'];?>" class="form-control form-control-lg rounded-0" required>
                                     </div>
-                                    <button type="submit" name="update_user" class="input-group-text btn btn-primary">
+                                    <div class="form-group mb-3">
+                                        <label for="">Owner Name</label>
+                                        <input type="text" name="owner" value="<?=$getData['owner'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Email Address</label>
+                                        <input type="email" name="email" value="<?=$getData['email'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Website</label>
+                                        <input type="text" name="website" value="<?=$getData['website'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Contact Number</label>
+                                        <input type="number" name="contact" value="<?=$getData['contact'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Street Address</label>
+                                        <input type="text" name="street" value="<?=$getData['street'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">City</label>
+                                        <input type="text" name="city" value="<?=$getData['city'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Province</label>
+                                        <input type="text" name="province" value="<?=$getData['province'];?>" class="form-control">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="">Country</label>
+                                        <input type="text" name="country" value="<?=$getData['country'];?>" class="form-control">
+                                    </div>
+
+                                    <input type="hidden" value="<?=$_GET['id'];?>" name="user_auth">
+                                    <div class="input-group mb-3">
+                                        <label for="">Enable or Disable account</label>
+                                        <select name="select_user_auth" class="form-control" required>
+                                            <option value=""></option>
+                                            <option value="disable">Disable</option>
+                                            <option value="enable">Enable</option>
+                                        </select>
+                                    <button type="submit" name="enable_disable_user_ac" class="input-group-text btn btn-primary">
                                     Submit
                                     </button>
                                     </div>

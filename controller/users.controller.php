@@ -4,6 +4,121 @@ include('../dbconnect.php');
 include('../functions.php');
 include('../models/users.model.php');
 
+
+
+if(isset($_POST['update_user']))
+{
+    $uid = $_POST['uid'];
+    $display_name = $_POST['display_name'];
+    $phone = $_POST['phone'];
+
+    $params = [
+        'displayName' => $display_name,
+        'phoneNUmber' => $phone
+    ];
+    
+    $user_updated = $auth->updateUser($uid,$params);
+
+    if($user_updated)
+    {
+        header("location: ../dashboard.php?page=accountedit&id=".$uid."&status=success");
+        exit();
+    }
+    else 
+    {
+        header("location: ../dashboard.php?page=accountedit&id=".$uid."&status=error");
+        exit();
+    }
+
+}
+
+if(isset($_POST['delete_user']))
+{
+    $uid = $_POST['uid'];
+
+  
+    $user_deleted = $auth->deleteUser($uid);
+
+    if($user_deleted)
+    {
+        header("location: ../dashboard.php?page=accounts&status=Deleted Successfully");
+        exit();
+    }
+    else 
+    {
+        header("location: ../dashboard.php?page=accounts&status=Unsuccessfull");
+        exit();
+    }
+
+}
+
+if(isset($_POST['enable_user']))
+{
+    $uid = $_POST['uid'];
+    $udpated_user = $auth->enableUser($uid);
+
+    if($udpated_user)
+    {
+        header("location: ../dashboard.php?page=accounts&status=User Updated Successfully");
+        exit();
+    }
+    else 
+    {
+        header("location: ../dashboard.php?page=accounts&status=Update Unsuccessfull");
+        exit();
+    }
+
+}
+
+if(isset($_POST['disable_user']))
+{
+    $uid = $_POST['uid'];
+    $udpated_user = $auth->disableUser($uid);
+
+    if($udpated_user)
+    {
+        header("location: ../dashboard.php?page=accounts&status=User Updated Successfully");
+        exit();
+    }
+    else 
+    {
+        header("location: ../dashboard.php?page=accounts&status=Update Unsuccessfull");
+        exit();
+    }
+    
+}
+
+if(isset($_POST['change_password']))
+{
+
+    $uid = $_POST['uid'];
+    $new_password = $_POST['new_password'];
+    $confirm_pasword = $_POST['retype_new_password'];
+    if($confirm_pasword != $new_password)
+    {
+        header("location: ../dashboard.php?page=accounts&error=Password not match");
+        exit();
+    }
+    else 
+    {
+        $udpated_user = $auth->changeUserPassword($uid,$new_password);
+
+        if($udpated_user)
+        {
+            header("location: ../dashboard.php?page=accounts&success=Password Updated");
+            exit();
+        }
+        else 
+        {
+            header("location: ../dashboard.php?page=accounts&success=password not udpated error");
+            exit();
+        }
+        
+    }
+    
+}
+
+
 if(isset($_POST['submit']))
 {
     

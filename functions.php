@@ -1,4 +1,6 @@
+
 <?php 
+
 function emptyForm($email,$username,$password,$passwordRepeat,$userlevel,$status)
 {
     $result;
@@ -123,40 +125,87 @@ function createUser($conn,$fname,$lname,$email,$dob,$contact,$username,$password
 }
 
 
-function loginUser($conn,$user_name,$user_pass,$action,$module)
+function loginUser($auth,$user_name,$user_pass)
 {
     
+    try
+    {
+        $user = $auth->getUserByEmail($user_name);
 
-    $uidExits = uidExits($conn,$user_name,$user_pass);
-        if($uidExits == false)
+        try
         {
-            $stats = array("status" => "error","result" => "user not exists","role" => "0");
-            header("location: ../admin.php?".$stats['status']."=".$stats['result']."");
-            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
+            $sign_in_result = $auth->signInWithEmailAndPassword($user_name,$user_pass);
+            $id_token = $sign_in_result->idToken();
+
+            try
+            {
+                $verified_token = $auth->verifyIdToken($id_token);
+                $uid = $verified_token->claims()->get('sub');
+
+                session_start();
+                $_SESSION['username'] = $uid;
+                $_SESSION['id'] = $id_token;
+                $_SESSION['role'] = 'admin';
+
+                
+                header("location: ../dashboard.php");
+                exit();
+
+            }
+            catch(InvalidToken $e)
+            {
+                header("location: ../admin.php?error=Invalid Token&mes=".$e>getMessage());
+                exit();
+            }
+            catch(\InvalidArgumentException $e)
+            {
+                header("location: ../admin.php?error=Token could not be parsed&mes=".$e>getMessage());
+                exit();
+            }
+        }
+        catch(Exception $e)
+        {
+            header("location: ../admin.php?error=Invalid Password");
             exit();
         }
+
+    }
+    catch(\Kreait\Firebase\Exception\Auth\UserNotFound $e)
+    {
+        header("location: ../admin.php?error=Invalid Email");
+        exit();
+    }
+
+    // $uidExits = uidExits($conn,$user_name,$user_pass);
+    //     if($uidExits == false)
+    //     {
+    //         $stats = array("status" => "error","result" => "user not exists","role" => "0");
+    //         header("location: ../admin.php?".$stats['status']."=".$stats['result']."");
+    //         userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
+    //         exit();
+    //     }
         
-        $passwordHashed = $uidExits['password'];
-        $checkPwd = password_verify($user_pass,$passwordHashed);
+    //     $passwordHashed = $uidExits['password'];
+    //     $checkPwd = password_verify($user_pass,$passwordHashed);
 
-        if($checkPwd === false)
-        {
-            $stats = array("status" => "error","result" => "wrong password","role" => "0");
-            header("location: ../admin.php?'".$stats['status']."'='".$stats['result']."'");
-            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
-            exit();
-        }
-        else if($checkPwd === true)
-        {
-            session_start();
-            $_SESSION['username'] = $uidExits['username'];
-            $_SESSION['id'] = $uidExits['id'];
-            $_SESSION['role'] = $uidExits['userlevel'];
-            $stats = array("status" => "success","result" => "logged in","role" => $uidExits['userlevel']);
-            header("location: ../dashboard.php?'".trim($stats['status'])."'='".$stats['result']."'&uid='".$_SESSION['username']."'");
-            userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
-            exit();
-        }
+    //     if($checkPwd === false)
+    //     {
+    //         $stats = array("status" => "error","result" => "wrong password","role" => "0");
+    //         header("location: ../admin.php?'".$stats['status']."'='".$stats['result']."'");
+    //         userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
+    //         exit();
+    //     }
+    //     else if($checkPwd === true)
+    //     {
+    //         session_start();
+    //         $_SESSION['username'] = $uidExits['username'];
+    //         $_SESSION['id'] = $uidExits['id'];
+    //         $_SESSION['role'] = $uidExits['userlevel'];
+    //         $stats = array("status" => "success","result" => "logged in","role" => $uidExits['userlevel']);
+    //         header("location: ../dashboard.php?'".trim($stats['status'])."'='".$stats['result']."'&uid='".$_SESSION['username']."'");
+    //         userlog($conn,$action,$user_name,$module,$stats['status'],$stats['result'],$stats['role']);
+    //         exit();
+    //     }
     }
 
     function is_logged_in()

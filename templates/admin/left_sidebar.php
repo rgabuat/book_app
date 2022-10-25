@@ -31,10 +31,16 @@ close
           </li>
           <?php endif; ?>
           <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <a class="nav-link d-flex text-white  mx-3" href="?page=accounts">
               <i class="material-icons me-3">manage_accounts</i>
               <p class="my-auto">Adopters</p>
+            </a>
+          </li> -->
+          <li class="nav-item ">
+            <a class="nav-link d-flex text-white  mx-3" href="?page=accounts">
+              <i class="material-icons me-3">group</i>
+              <p class="my-auto">Users</p>
             </a>
           </li>
           <li class="nav-item ">

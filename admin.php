@@ -19,30 +19,6 @@
 </style>
 
 <body> 
-  <!-- <div class="container vh-100 d-flex align-items-center ">
-    <div class="col-md-4 m-auto ">
-      <form action="./actions/login.php" method="POST" class="shadow p-4 " enctype='multipart/form-data'>
-      <input type="hidden" name="action" value="login">
-      <h2 class="h2 text-center">LOG-IN FORM</h2>
-      <div class="form-group">
-      <label for="">Username:</label>
-      <input type="text" name="admuser" class="form-control">
-      </div>
-      <div class="form-group  mb-4">
-        <label for="">Password: </label>
-        <input type="password" name="admpass" class="form-control">
-      </div>
-    <div class="form-group">
-    <input type="submit" name="submit" value="LOGIN" class="form-control btn btn-success">
-    </div>
-    <div class="col-12">
-        <div class="text-center">
-        <a href="#"><span>&copy; Crix Brix</span></a>
-        </div>
-    </div>
-    </form> 
-    </div>
-  </div> -->
   <section class="h- gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -65,7 +41,7 @@
                   <p>Magic starts here! Login to your account</p>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form2Example11" name="admuser" class="form-control form-control-lg" placeholder="Phone number or email address" style="color: #81c3d7;"/>
+                    <input type="email" id="form2Example11" name="admuser" class="form-control form-control-lg" placeholder="Phone number or email address" style="color: #81c3d7;"/>
                     <label class="form-label" style="color: #81c3d7;" for="form2Example11">Username</label>
                   </div>
 

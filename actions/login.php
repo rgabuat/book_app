@@ -16,7 +16,11 @@ if(isset($_POST['submit']))
         exit();
     }
 
-    loginUser($conn,$user_name,$user_pass,$action,$module);
+    
+
+
+    
+    loginUser($auth,$user_name,$user_pass);
     
 }
 else
