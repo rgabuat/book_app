@@ -53,48 +53,19 @@ if(isset($_POST['submit']))
 
     }
 
-    else if($_POST['action'] == "updateaccount")
-    {
-        $id= mysqli_escape_string($conn,$_POST['pid']);
-        $fname= mysqli_escape_string($conn,$_POST['fname']);
-        $lname = mysqli_escape_string($conn,$_POST['lname']);
-        $uname = mysqli_escape_string($conn,$_POST['uname']);
-        $dob = mysqli_escape_string($conn,$_POST['dob']);
-        $email = mysqli_escape_string($conn,$_POST['email']);
-        $contact = mysqli_escape_string($conn,$_POST['contact']);
-
+    else if($_POST['action'] == "updateaccount") {
+        $key = $_POST['key'];
+        $bizName = $_POST['bizName'];
+        $owner = $_POST['owner'];
+        $email = $_POST['email'];
+        $website = $_POST['website'];
+        $contact = $_POST['contact'];
+        $city = $_POST['city'];
+        $province = $_POST['province'];
+        $country = $_POST['country'];
+        
 
         
-        // if(emptyForm($fname,$lname,$uname,$password,$passwordRepeat,$dob,$email,$contact) !== false)
-        // {
-        //     header("location:../register.php?error=emptyinput");
-        //     exit();
-        // }
-
-        if(invalidEmail($email) !== false)
-        {
-            header("location:../dashboard.php?page=accounts&error=Email-is-not-valid");
-            exit();
-        }
-        // if(invalidUid($uname) !== false)
-        // {
-        //     header("location:../register.php?error=invalidusername");
-        //     exit();
-        // }
-
-        // if(pwdMath($password,$passwordRepeat) !== false)
-        // {
-        //     header("location:../register.php?error=passworddontmatch");
-        //     exit();
-        // }
-
-        // if(uidExits($conn,$uname,$email))
-        // {
-        //     header("location:../dashboard.php?page=profile&error=Email is already registered");
-        //     exit();
-        // }
-
-        updateaccount($conn,$id,$fname,$lname,$email,$dob,$contact,$uname);
 
     }
 

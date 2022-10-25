@@ -38,13 +38,13 @@ close
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link d-flex text-white  mx-3" href="?page=cats">
+            <a class="nav-link d-flex text-white  mx-3" href="?page=display-cats">
               <i class="fas fa-cat me-3" style="font-size:24px"></i>
               <p class="my-auto">Cats</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link d-flex text-white  mx-3" href="?page=dogs">
+            <a class="nav-link d-flex text-white  mx-3" href="?page=display-dogs">
               <i class="fas fa-dog me-3" style="font-size:24px"></i>
               <p class="my-auto">Dogs</p>
             </a>
