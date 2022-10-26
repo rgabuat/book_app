@@ -3,7 +3,7 @@
         <div class="col-12">
             <div  class="card bg-warning text-white">
                 <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem">
-                    <h2 class="text-dark">Welcome <span class="text-white"><?= ucwords($_SESSION['username']);?></span></h2>
+                    <h2 class="text-dark">Welcome Admin!<span class="text-white"></span></h2>
                     <span>My Profile</span>
                     <h2 class="card-text ">
 

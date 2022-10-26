@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-12">
         <div class="card bg-light mb-4">
-                <div class="card-body" style="background-color: #3a7ca5 !important; border-radius: .5rem !important;">
+                <div class="card-body" style="background-color: #371576 !important; border-radius: .5rem !important;">
                     <div class="col-md-6">
-                        <h2 style="color: #ffffff;">Welcome <?= ucwords($_SESSION['username']);?></h2>
+                        <h2 style="color: #ffffff;">Welcome Admin</h2>
                         <p class="m-auto text-secondary" style="color: #81c3d7 !important;"><?= ucwords($_SESSION['role']);?></p>
                     </div>
                     <div class="col-md-6">
@@ -18,7 +18,7 @@
     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
         <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
             <div  class="card bg-warning text-dark text-center">
-                <div class="card-body" style="background-color: #d9dcd6; border-radius: .5rem;">
+                <div class="card-body" style="background-color: #371576 border-radius: .5rem;">
                     <h3 class="card-title">Total Adopters</h3>
                     <h2 class="card-text ">
                     <?php 

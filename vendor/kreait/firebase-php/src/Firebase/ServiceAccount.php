@@ -87,7 +87,7 @@ final class ServiceAccount
                 }
 
                 return self::fromArray(Json::decodeFile($value, true));
-            } catch (Throwable $e) {
+            } catch (Throwable $e) {    
                 throw new InvalidArgumentException('Invalid service account: '.$e->getMessage(), $e->getCode(), $e);
             }
         }
