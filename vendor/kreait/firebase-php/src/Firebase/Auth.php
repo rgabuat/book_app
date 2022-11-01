@@ -159,6 +159,32 @@ final class Auth implements Contract\Auth
         } while ($pageToken);
     }
 
+    public function listShelter(int $maxResults = 1000, int $batchSize = 1000): Traversable
+    {
+        $pageToken = null;
+        $count = 0;
+
+        if ($batchSize > $maxResults) {
+            $batchSize = $maxResults;
+        }
+
+        do {
+            $response = $this->client->downloadAccount($batchSize, $pageToken);
+            $result = Json::decode((string) $response->getBody(), true);
+
+            foreach ((array) ($result['shelters'] ?? []) as $userData) {
+                yield UserRecord::fromResponseData($userData);
+
+                if (++$count === $maxResults) {
+                    return;
+                }
+            }
+
+            $pageToken = $result['nextPageToken'] ?? null;
+        } while ($pageToken);
+    }
+
+
     public function createUser($properties): UserRecord
     {
         $request = $properties instanceof CreateUser

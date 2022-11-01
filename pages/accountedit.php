@@ -35,26 +35,31 @@
                                 <form action="./controller/users.controller.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="action" value="updateaccount">
                                     <input type="hidden" name="uid" value="<?= $uid ?>">
-                                    <div class="form-group mb-3">
-                                        <label for="">Display name</label>
-                                        <input type="text" name="display_name" value="<?=$user->displayName;?>" class="form-control form-control-lg rounded-0" required>
+                                    <div class="form-group mb-3 text-black">
+                                        <label for="">Business Name</label>
+                                        <input type="text" name="business_name" value="<?=$user->displayName;?>" class="form-control form-control-lg rounded-0" required>
                                     </div>
                                     <!-- <div class="form-group mb-3">
                                         <label for="">Business Name</label>
                                         <input type="email" name="email" value="<?=$user->email;?>" class="form-control form-control-lg rounded-0" required>
                                     </div> -->
-                                    <div class="form-group mb-3">
-                                        <label for="">Business Name</label>
+                                    <div class="form-group mb-3 text-black">
+                                        <label for="">Owner Name</label>
+                                        <input type="tel" name="owner_name" value="<?=$user->ownerName;?>" class="form-control form-control-lg rounded-0" required>
+                                    </div>
+
+                                    <div class="form-group mb-3 text-black">
+                                        <label for="">Contact Number</label>
                                         <input type="tel" name="phone" value="<?=$user->phoneNumber;?>" class="form-control form-control-lg rounded-0" required>
                                     </div>
                                     <button type="submit" name="update_user" class="input-group-text btn btn-primary">
-                                    Submit
+                                    Update
                                     </button>
                                     </div>
                                     
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <input style="background-color: #3a7ca5 !important; border-radius: .5rem !important" type="submit" name="submit" value="UPDATE DETAILS" class="btn btn-warning btn-lg w-lg-25 mt-lg-2 mt-md-5 mx-auto rounded-0 ">
-                                     </div>
+                                     </div> -->
                                 </form>
 
                                 <?php
