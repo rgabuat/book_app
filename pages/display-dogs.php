@@ -4,6 +4,7 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Key</th>
                 <th>Age</th>
                 <th>Sex</th>
                 <th>Status</th>
@@ -24,10 +25,11 @@
                 foreach($fetchdata as $key => $cats) {
             ?>
                 <td><?= $i++ ?></td>
+                <td><?= $key ?></td>
                 <td><?= $cats['petName'] ?></td>
                 <td><?= $cats['petAge'] ?></td>
                 <td><?= $cats['petSex'] ?></td>
-                <td><?= $cats['petStatus'] ?></td>
+                <td><span class="badge badge-<?= $cats['petStatus'] == 'Available' ? 'success' : 'danger' ?>"><?= $cats['petStatus'] ?></span></td>
                 <td>
                 <span>
                 <a id="ActEditBtn" href="javascript:void(0);" class="text-warning" data-id="<?= $key?>" data-mdb-toggle="modal" data-mdb-target="#edit<?= $key?>" >
