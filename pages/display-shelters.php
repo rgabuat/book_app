@@ -30,7 +30,7 @@
                 <td><?= $row['email'] ?></td>
                 <td>
                <span>
-               <a id="editBtn" href="?page=accountedit&id=<?= $key; ?>" class="text-warning" data-id="<?= $key; ?>" data-title="Edit" data-action="edit" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Edit">
+               <a id="editBtn" href="?page=edit-shelters&id=<?= $key; ?>" class="text-warning" data-id="<?= $key; ?>" data-title="Edit" data-action="edit" data-mdb-toggle="tooltip" data-mdb-placement="top" title="Edit">
                     <i class="material-icons me-3">edit_note</i>
                 </a>
                </span>

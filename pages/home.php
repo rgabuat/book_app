@@ -21,11 +21,30 @@
                 <div class="card-body" style="background-color: #371576 border-radius: .5rem;">
                     <h3 class="card-title">Total Adopters</h3>
                     <h2 class="card-text ">
-                    <?php 
-                        $ref_table = "Adopters";
-                        $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();  
+                    <!-- <php 
+                    //     $ref_table = "Adopters/Status";
+
+                    //     $fetchdata = $database->getReference($ref_table)->getValue();
+
+                    // if ($fetchdata['status'] == "available")
+                    //     $i = 1;
+                    //     foreach($fetchdata as $key => $row) {
+                     
+                    //     $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();  
+                    //     echo $total_count;
+                    //     }
+                    $ref_table = "Cats";
+                    $fetchdata = $database->getReference($ref_table)->getValue();
+                    $total_count = 0;
+
+                    foreach($fetchdata as $key => $row) {
+                        if ($row['petStatus'] == "available") {
+                            $total_count += 1;
+                        }
+                    }
+                        // $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();  
                         echo $total_count;
-                    ?>
+                    ?> -->
                     </h2>
                     <hr>
                     <p class="m-0 text-center"><a href="?page=accounts" class="text-dark">View Details</a></p>
@@ -78,6 +97,26 @@
                     </h2>
                     <hr>
                     <p class="m-0 text-center"><a href="?page=stats" class="text-white">View Details</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-lg-4 col-md-6 col-xl-3 mb-4">
+            <div  class="card bg-warning text-dark text-center">
+                <div class="card-body" style="background-color: #371576 border-radius: .5rem;">
+                    <h3 class="card-title">Total Adopters</h3>
+                    <h2 class="card-text ">
+                    <?php 
+                        $ref_table = "Adopters";
+                        $ref_table = "Adopters";
+                        $total_count = $database->getReference($ref_table)->getSnapshot()->numChildren();  
+                        echo $total_count;
+                    ?>
+                    </h2>
+                    <hr>
+                    <p class="m-0 text-center"><a href="?page=accounts" class="text-dark">View Details</a></p>
                 </div>
             </div>
         </div>

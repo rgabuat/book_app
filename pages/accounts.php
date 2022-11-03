@@ -100,7 +100,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    Disable User <?= $user->displayName ?> ?
+                                    Disable User <?= $user->displayName ?>?
                                 </p>
                                 <input type="hidden" name="uid" value="<?= $user->uid?>">
                             </div>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="modal-body">
                                 <p>
-                                    Enable User <?= $user->displayName ?> ?
+                                    Enable User <?= $user->displayName ?>?
                                 </p>
                                 <input type="hidden" name="uid" value="<?= $user->uid?>">
                             </div>
