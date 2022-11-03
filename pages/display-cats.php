@@ -4,7 +4,7 @@
             <tr>
                 <th>#</th>
                 <th>Key</th>
-                <th>Name</th>
+                <!-- <th>Name</th> -->
                 <th>Age</th>
                 <th>Sex</th>
                 <th>Status</th>
@@ -21,7 +21,7 @@
                 foreach($fetchdata as $key => $cats) :
             ?>
                 <td><?= $i++ ?></td>
-                <td><?= $key ?></td>
+                <!-- <td><?= $key ?></td> -->
                 <td><?= $cats['petName'] ?></td>
                 <td><?= $cats['petAge'] ?></td>
                 <td><?= $cats['petSex'] ?></td>
@@ -78,14 +78,14 @@
                                                 <input type="text" name="petAge" value="<?= $cats['petAge'] ?>" class="form-control  rounded-0" required />
                                                 <label class="form-label" for="Age">Age</label>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <!-- <div class="form-outline mb-3">
                                                 <input type="text" name="petAgeDD" value="<?= isset($cats['petAgeDD'])  ?  $cats['petAgeDD'] : 'no data' ;?>" class="form-control rounded-0" required />
                                                 <label class="form-label" for="Age DD">Age DD</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="petAgeNum" value="<?= isset($cats['petAgeNum'])  ?  $cats['petAgeNum'] : 'no data' ;?>" class="form-control rounded-0" required />
                                                 <label class="form-label" for="Age Num">Age Num</label>
-                                            </div>
+                                            </div> -->
                                             <small><label class="form-label" for="Pet Sex">Pet Sex</label></small>
                                             <select name="petSex" class="form-control mb-3">
                                                 <option value="">Select</option>
@@ -96,47 +96,47 @@
                                             <p class="mb-3">Questions:</p>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q1" value="<?= $cats['q1'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 1</label>
+                                                <label class="form-label" for="Pet ID">Activity/Playfulness</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q2" value="<?= $cats['q2'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 2</label>
+                                                <label class="form-label" for="Pet ID">Calmness/label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q3" value="<?= $cats['q3'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 3</label>
+                                                <label class="form-label" for="Pet ID">Non-aggression</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q4" value="<?= $cats['q4'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 4</label>
+                                                <label class="form-label" for="Pet ID">Sociability toward humans</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q5" value="<?= $cats['q5'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 5</label>
+                                                <label class="form-label" for="Pet ID">Sociability toward pets</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q6" value="<?= $cats['q6'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 6</label>
+                                                <label class="form-label" for="Pet ID">Litterbox Comfortability + Adjustment</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q7" value="<?= $cats['q7'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 7</label>
+                                                <label class="form-label" for="Pet ID">Healthy Grooming</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q8" value="<?= $cats['q8'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 8</label>
+                                                <label class="form-label" for="Pet ID">Age/Life Expectancy</label>
                                             </div>
                                             <div class="form-outline mb-3">
                                                 <input type="text" name="q9" value="<?= $cats['q9'] ?>" class="form-control form-control rounded-0" required />
-                                                <label class="form-label" for="Pet ID">Question 9</label>
+                                                <label class="form-label" for="Pet ID">Breed</label>
                                             </div>
-                                            <div class="form-outline mb-3">
+                                            <!-- <div class="form-outline mb-3">
                                                 <input type="text" name="shelter" value="<?= $cats['shelter'] ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Shelter</label>
-                                            </div>
+                                            </div> -->
                                             <div class="form-outline mb-3">
                                                 <textarea name="petDesc" cols="30" rows="10" class="form-control form-control rounded-0" required><?= $cats['petDesc'] ?></textarea>
-                                                <label class="form-label" for="dssc">Age</label>
+                                                <label class="form-label" for="dssc">Description</label>
                                             </div>
                                            
                                             <input type="submit" name="update_cat" class="btn btn-success form-control my-3 rounded-0" data-mdb-ripple-color="dark" value="SUBMIT">
