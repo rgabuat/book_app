@@ -98,39 +98,39 @@
                                             <p><strong>Pet Status:</strong><span class="badge badge-<?= $cats['petStatus'] == 'Available' ? 'success' : 'danger' ?>"><?= $cats['petStatus'] ?></span></p>
                                             <p class="mb-3">Questions:</p>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q1" value="<?= $cats['q1'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q1" value="<?= $cats['q1'] == 1 ? "High" : ($cats['q1'] == 2 ? "Medium": ($cats['q1'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Intelligence - Obedience</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q2" value="<?= $cats['q2'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q2" value="<?= $cats['q2'] == 1 ? "High" : ($cats['q2'] == 2 ? "Medium": ($cats['q2'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Intelligence - Adaptability</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q3" value="<?= $cats['q3'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q3" value="<?= $cats['q3'] == 1 ? "High" : ($cats['q3'] == 2 ? "Medium": ($cats['q3'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Non-shedding</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q4" value="<?= $cats['q4'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q4" value="<?= $cats['q4'] == 1 ? "High" : ($cats['q4'] == 2 ? "Medium": ($cats['q4'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Non-drooling</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q5" value="<?= $cats['q5'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q5" value="<?= $cats['q5'] == 1 ? "High" : ($cats['q5'] == 2 ? "Medium": ($cats['q5'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Maintenance</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q6" value="<?= $cats['q6'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q6" value="<?= $cats['q6'] == 1 ? "High" : ($cats['q6'] == 2 ? "Medium": ($cats['q6'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Friendliness</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q7" value="<?= $cats['q7'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q7" value="<?= $cats['q7'] == 1 ? "High" : ($cats['q7'] == 2 ? "Medium": ($cats['q7'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Adaptability towards humans</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q8" value="<?= $cats['q8'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q8" value="<?= $cats['q8'] == 1 ? "High" : ($cats['q8'] == 2 ? "Medium": ($cats['q8'] == 3 ? "Low": "No data found"))?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Adaptability towards pets</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q9" value="<?= $cats['q9'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q9" value="<?= $cats['q9'] == 1 ? "High" : ($cats['q9'] == 2 ? "Medium": ($cats['q9'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Adaptability towards environment</label>
                                             </div>
                                             <div class="form-outline mb-3">
@@ -138,7 +138,7 @@
                                                 <label class="form-label" for="Pet ID">Breed</label>
                                             </div>
                                             <div class="form-outline mb-3">
-                                                <input type="text" name="q11" value="<?= $cats['q11'] ?>" class="form-control form-control rounded-0" required />
+                                                <input type="text" name="q11" value="<?= $cats['q11'] == 1 ? "High" : ($cats['q11'] == 2 ? "Medium": ($cats['q11'] == 3 ? "Low": "No data found")) ?>" class="form-control form-control rounded-0" required />
                                                 <label class="form-label" for="Pet ID">Longevity</label>
                                             </div>
                                             <!-- <div class="form-outline mb-3">

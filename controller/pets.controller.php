@@ -3,7 +3,7 @@ session_start();
 include('../dbconnect.php');
 include('../functions.php');
 
-
+if ($pet->data == 1 ? "High" : ($pet->data == 2 ? "Medium": ($pet->data == 3 ? "Low": "No data found")))
 
 if(isset($_POST['update_cat']))
 {
